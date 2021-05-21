@@ -48,12 +48,15 @@ namespace UML_Console_Project.ProjectFiles
             }
         }
 
-        /*void AddInitialData()
+        void AddInitialData()
         {
-            MySystem.c[0]={ };
+            /*            
+            
+            MySystem.p[0]={ };
             MySystem.storefiles();
+            */
         }
-        */
+        
 
 }
 }

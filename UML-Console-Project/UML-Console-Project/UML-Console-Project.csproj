@@ -50,7 +50,6 @@
     <Compile Include="ProjectFiles\Offer.cs" />
     <Compile Include="ProjectFiles\Order.cs" />
     <Compile Include="ProjectFiles\Provider.cs" />
-    <Compile Include="ProjectFiles\MySystem.cs" />
     <Compile Include="ProjectFiles\test.cs" />
     <Compile Include="ProjectFiles\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
