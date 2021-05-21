@@ -1,4 +1,4 @@
-﻿static public void loadFiles()
+﻿/*static public void loadFiles()
 {
     FileStream warehouse_file;
     FileStream employee_file;
@@ -85,4 +85,4 @@ static public void StoreFiles()
 
 
 
-}
+}*/
