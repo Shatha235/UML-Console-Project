@@ -13,10 +13,10 @@ namespace UML_Console_Project
         {
             //"how to clear console + freeze "
             Console.WriteLine("hi");
-            Thread.Sleep(2000);
+            Thread.Sleep(5000);
             Console.Clear();
             Console.WriteLine("hi, again");
-            Thread.Sleep(2000);
+            Thread.Sleep(5000);
         }
     }
 }

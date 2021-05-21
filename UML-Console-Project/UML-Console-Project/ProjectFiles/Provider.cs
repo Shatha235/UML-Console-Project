@@ -47,7 +47,13 @@ namespace UML_Console_Project.ProjectFiles
                 t++;
             }
         }
-        
-    
+
+        /*void AddInitialData()
+        {
+            MySystem.c[0]={ };
+            MySystem.storefiles();
+        }
+        */
+
 }
 }
