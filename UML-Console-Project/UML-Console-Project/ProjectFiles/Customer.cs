@@ -28,10 +28,10 @@ namespace UML_Console_Project.ProjectFiles
         {
             Provider[] pArr = new Provider[6];
             int i = 0;
-            provider.read(pArr[i]);
+            provider.read(pArr);
             foreach (Provider pr in pArr)
             {
-                if (pr.GetLocation == location || pr.GetCategory == category)
+                if (pr.GetLocation() == location || pr.GetCategory() == category)
                 {
                 }
 
