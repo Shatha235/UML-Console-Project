@@ -4,6 +4,8 @@ using System.Text;
 using System.IO;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
+using UML_Console_Project;
+
 
 
 namespace UML_Console_Project.ProjectFiles
