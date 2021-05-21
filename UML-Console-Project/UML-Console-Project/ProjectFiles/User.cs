@@ -8,5 +8,8 @@ namespace UML_Console_Project.ProjectFiles
 {
     class User
     {
+        protected string name;
+        protected int pass;
+
     }
 }
