@@ -8,5 +8,9 @@ namespace UML_Console_Project.ProjectFiles
 {
     class MySystem
     {
+        public void Login()
+        {
+
+        }
     }
 }
