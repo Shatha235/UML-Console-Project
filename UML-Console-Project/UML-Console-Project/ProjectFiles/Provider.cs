@@ -68,7 +68,7 @@ namespace UML_Console_Project.ProjectFiles
             MySystem.ProviderArr[6] ={"WMs","Market","Area2",0.82,0.09,i0[6],700};
             MySystem.ProviderArr[7] ={"24Hours","Market","Area3",0.79,0.08,i0[7],800};
             MySystem.ProviderArr[8] ={"C-Market","Market","Area1",0.92,0.14,i0[8],900};
-          
+            MySystem.Storefiles();
         }
         
         
