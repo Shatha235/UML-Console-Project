@@ -11,21 +11,38 @@ namespace UML_Console_Project.ProjectFiles
 {
     class Item
     {    
-        private string ID;
-        private string Description;
-        private int price;
-        private int Quantity;
+        public string ID;
+        public string Description;
+        public int Price;
+        public int Quantity;
 
-        public void Item(string ID , string Description ,int price, int Quantity)
+        public  Item(string ID , string Description ,int price, int Quantity)
         { 
             this.ID=ID;
             this.Description=Description;
-            this.price=price;
+            this.Price=price;
             this.Quantity=Quantity;
         }
+
+        public Item()
+        {
+            this.ID = "";
+            this.Description = "";
+            this.Price = 0;
+            this.Quantity = 0;
+        }
+
         public string GetID()
         { 
            return this.ID;
+        }
+
+        public void AddItem(string ID,string Description,int Price,int Quantity)
+        {
+            this.ID = ID;
+            this.Description = Description;
+            this.Price = Price;
+            this.Quantity = Quantity;
         }
 
     }

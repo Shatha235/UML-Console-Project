@@ -15,8 +15,8 @@ namespace UML_Console_Project.ProjectFiles
         private string Name;
         private string Category;
         private string Location;
-        private float Review;
-        private int DeliveryRate;
+        private double Review;
+        private double DeliveryRate;
         private Item[] ListOfItems;
         private int Income;
         public string GetLocation()
@@ -28,25 +28,39 @@ namespace UML_Console_Project.ProjectFiles
         {
             return this.Category;
         }
+
+        public void Setall(string Name,string Category,string Location,double Review,double DeliveryRate,Item[] ListOfItems, int Income) 
+        {
+            this.Name = Name;
+            this.Category = Category;
+            this.Location = Location;
+            this.Review = Review;
+            this.DeliveryRate = DeliveryRate;
+            this.ListOfItems = ListOfItems;
+            this.Income = Income;
+            
+        }
         
         
         public void InaitialData()
-        {    
-            
-            string I1,I2,I3,I4,I5,I6,I7,I8,I9,I10;
-            Item [] i0= new item[100];
-            i0[0] ={I1,I2,I5};
-            i0[1] ={I2,I3,I4,I5};
-            i0[2] ={I1,I2,I3,I4,I5};
-            i0[3] ={I1,I2,I3,I5};
-            i0[4] ={I6,I7,I8,I9,I10};
-            i0[5] ={I6,I7,I8,I9,I10};
-            i0[6] ={I6,I8,I9,I10};
-            i0[7] ={I6,I7,I8,I9};
-            i0[8] ={I6,I7,I8,I9,I10};
-            //i0[9] ={ AddItem(I1),AddItem(I2),AddItem(I3)} if it's correct we applay this to all items above.
-            MySystem.ProviderArr[0] ={"Hot and Cold","Food","Area1",0.68,0.05,i0[0],100};
-            MySystem.ProviderArr[1] ={"MY Bread","Food","Area1",0.75,0.07,i0[1],200};
+        {
+
+          
+
+
+
+            Item [] i1= new Item[100];
+            i1[0].AddItem("I1", "Juice", 4, 10);
+            i1[1].AddItem("", "", 0, 0);
+            i1[2].AddItem("", "", 0, 0);
+         
+            MySystem.ProviderArr[0].Setall("Hot and Cold","Food","Area1",0.68,0.05,i1,100);
+
+            Item[] i2 = new Item[100];
+
+
+
+            MySystem.ProviderArr[1] .Setall("MY Bread","Food","Area1",0.75,0.07,i2,200);
             MySystem.ProviderArr[2] ={"Good Recipe","Food","Area2",0.9,0.12,i0[2],300};
             MySystem.ProviderArr[3] ={"Tasty","Food","Area3", 0.73 , 0.06 ,i0[3] ,400};
             MySystem.ProviderArr[4] ={"Stop Here","Market","Area1",0.88,0.1 ,i0[4],500};
@@ -57,25 +71,7 @@ namespace UML_Console_Project.ProjectFiles
           
         }
         
-        public void AddItem(string ID)
-        {    
-           Item []t=new Item[10];
-            t[0] ={"I1","Juice",4,10 };
-            t[1] ={"I2" ,"Sandwich",8,30};
-            t[2]={"I3" ,"Sweet",15,20};
-            t[3]={"I4" ,"Steak",20,15};
-            t[4]={"I5" ,"Salad",5,25};
-            t[5]={"I6" ,"Hand wash",3,50};
-            t[6]={"I7" ,"Spices",6,35};
-            t[7]={"I8" ,"Tissues",10,70};
-            t[8]={"I9" ,"Oil",7,30};
-            t[9]={"I10" ,"Sanitizer",2,100};
-             for(int i=0; i<10;1++)
-            { 
-               if(t[i].GetID==this.ID)
-                  //test if it is correct (string I +int(i+1)=t[i]);
-                  ID=t[i];
-            }
+        
 
         }
       
