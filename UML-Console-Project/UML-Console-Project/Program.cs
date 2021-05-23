@@ -190,11 +190,14 @@ namespace UML_Console_Project
         static void Main(string[] args)
         {
             //"how to clear console + freeze "
-            Console.WriteLine("hi");
+            /*Console.WriteLine("hi");
             Thread.Sleep(5000);
             Console.Clear();
             Console.WriteLine("hi, again");
-            Thread.Sleep(5000);
+            Thread.Sleep(5000);*/
+
+        
+
         }
     }
 }

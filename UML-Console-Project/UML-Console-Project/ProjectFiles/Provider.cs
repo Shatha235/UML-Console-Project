@@ -34,9 +34,10 @@ namespace UML_Console_Project.ProjectFiles
         {
             return this.Category;
         }
-        public string GetDeliveryRate()
-        { 
+        public double GetDeliveryRate()
+        {
             return this.DeliveryRate;
+            //Convert.ToString(100 * this.DeliveryRate) + "%";
         }
         public void Setall(string Name,string Category,string Location,double Review,double DeliveryRate,Item[] ListOfItems, int Income) 
         {
@@ -54,6 +55,9 @@ namespace UML_Console_Project.ProjectFiles
         public void InaitialData()
         {
 
+            //warning : only call it when you wanna reset provider data
+
+            MySystem.ProviderArr = new Provider[100]; // to reset the array before initiating <jebril>
             Item [] i1= new Item[100];
             i1[0].AddItem("I1", "Juice", 4, 10);
             i1[1].AddItem("I2", "Sandwich ",8, 30);
@@ -125,7 +129,7 @@ namespace UML_Console_Project.ProjectFiles
         public void PrintProvider()
         { 
             MySystem.Loadfiles();
-            for(int i=0;i<MySystem.ProviderArr.Length();i++)
+            for(int i=0;i<MySystem.PCounter;i++) // go to Program.cs to see the names of the arrays and the counters <jebril>
             { 
                Console.WriteLine(MySystem.ProviderArr[i]);
             }
@@ -134,4 +138,4 @@ namespace UML_Console_Project.ProjectFiles
       
 
 }
-}
+

@@ -28,7 +28,11 @@ namespace UML_Console_Project.ProjectFiles
 
         public void ReadProvider(string location, string category)
         {
-            Provider[] pArr = new Provider[6];
+            //i put it in a comment to ignore the error 
+            //<jebril>
+
+
+            /*Provider[] pArr = new Provider[6];
             int i = 0;
             provider.read(pArr);
             foreach (Provider pr in pArr)
@@ -38,7 +42,7 @@ namespace UML_Console_Project.ProjectFiles
                 }
 
 
-            }
+            }*/
 
 
 
