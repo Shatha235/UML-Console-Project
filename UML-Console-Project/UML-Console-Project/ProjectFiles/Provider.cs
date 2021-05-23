@@ -54,12 +54,12 @@ namespace UML_Console_Project.ProjectFiles
             MySystem.ProviderArr[6] ={"WMs","Market","Area2",0.82,0.09,i0[6],700};
             MySystem.ProviderArr[7] ={"24Hours","Market","Area3",0.79,0.08,i0[7],800};
             MySystem.ProviderArr[8] ={"C-Market","Market","Area1",0.92,0.14,i0[8],900};
-          
+            MySystem.Storefiles();
         }
         
         public void AddItem(string ID)
         {    
-           Item []t=new Item[10];
+            Item []t=new Item[10];
             t[0] ={"I1","Juice",4,10 };
             t[1] ={"I2" ,"Sandwich",8,30};
             t[2]={"I3" ,"Sweet",15,20};
@@ -72,7 +72,7 @@ namespace UML_Console_Project.ProjectFiles
             t[9]={"I10" ,"Sanitizer",2,100};
              for(int i=0; i<10;1++)
             { 
-               if(t[i].GetID==this.ID)
+               if(t[i].GetID==ID)
                   //test if it is correct (string I +int(i+1)=t[i]);
                   ID=t[i];
             }
