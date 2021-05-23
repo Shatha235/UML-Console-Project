@@ -37,12 +37,16 @@ namespace UML_Console_Project.ProjectFiles
            return this.ID;
         }
 
-        public void AddItem(string ID,string Description,int Price,int Quantity)
+        public static Item AddItem(string ID,string Description,int Price,int Quantity)
         {
-            this.ID = ID;
-            this.Description = Description;
-            this.Price = Price;
-            this.Quantity = Quantity;
+            Item it=new Item();
+            it.ID = ID;
+            it.Description = Description;
+            it.Price = Price;
+            it.Quantity = Quantity;
+            return it;
+
+
         }
 
         public void printItem()

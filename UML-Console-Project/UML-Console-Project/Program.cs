@@ -166,22 +166,115 @@ namespace UML_Console_Project
 
         public void Login()
         {
+            int choice;
+            Console.WriteLine("[1] Login as administrator");
+            Console.WriteLine("[2] Login as customer");
+            Console.WriteLine("[3] Exit");
+            Console.Write("Enter your choice: ");
+            choice = Convert.ToInt32(Console.ReadLine());
 
+            if(choice==1)
+            {
+                Console.Clear();
+                LoginAsAdmin();
+            }
+
+            else if(choice==2)
+            {
+                Console.Clear();
+                LoginAsCustomer();
+            }
+
+            else if(choice==3)
+            {
+                Console.Clear();
+                Exit();
+            }
+
+            else
+            {
+                Sh.Msg("You entered a wrong choice,\nplease enter a valid choice from 1-3 to continue...");
+                Login();
+                
+            }
+            
         }
 
         public void LoginAsAdmin()
         {
+            Console.Write("Enter username: ");
+            string username = Console.ReadLine();
+            Console.Write("\nEnter passwrod: ");
+            string password= Console.ReadLine();
+            if (username == "admin" && password == "00")
+            {
+                Console.Clear();
+                Admin.Options();
+            }
+            else
+            {
+                Sh.Msg("You entered unvalid login info,\nplease enter valid username and password to continue...");
+                LoginAsAdmin();
+            }
+
+
         }
 
         public void LoginAsCustomer()
         {
+            Console.Write("Enter username: ");
+            string username = Console.ReadLine();
+            Console.Write("\nEnter passwrod: ");
+            string password = Console.ReadLine();
+            if (username == CustomerArr[0].GetUsername() && password == CustomerArr[0].GetPassword())
+            {
+                Console.Clear();
+                (CustomerArr[0]).Options();
+            }
 
+            else if (username == CustomerArr[1].GetUsername() && password == CustomerArr[1].GetPassword())
+            {
+                Console.Clear();
+                (CustomerArr[1]).Options();
+            }
+
+            else if (username == CustomerArr[2].GetUsername() && password == CustomerArr[2].GetPassword())
+            {
+                Console.Clear();
+                (CustomerArr[2]).Options();
+            }
+
+            else if (username == CustomerArr[3].GetUsername() && password == CustomerArr[3].GetPassword())
+            {
+                Console.Clear();
+                (CustomerArr[3]).Options();
+            }
+
+            else if (username == CustomerArr[4].GetUsername() && password == CustomerArr[4].GetPassword())
+            {
+                Console.Clear();
+                (CustomerArr[4]).Options();
+            }
+
+            else
+            {
+                Sh.Msg("You entered unvalid login info,\nplease enter valid username and password to continue...");
+                LoginAsCustomer();
+            }
         }
 
-        public void Logout()
-        {}
+        static public void Logout()
+        {
+            //testing
+            Console.WriteLine("logging out...");
+        }
 
-        
+        public void Exit()
+        { }
+
+
+
+
     }
 
 
@@ -195,8 +288,12 @@ namespace UML_Console_Project
             Console.Clear();
             Console.WriteLine("hi, again");
             Thread.Sleep(5000);*/
-
-        
+            Provider.InaitialData();
+            Customer.InaitialData();
+            MySystem s = new MySystem();
+            s.Login();
+            
+            
 
         }
     }
