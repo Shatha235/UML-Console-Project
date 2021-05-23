@@ -45,5 +45,12 @@ namespace UML_Console_Project.ProjectFiles
             this.Quantity = Quantity;
         }
 
+        public void printItem()
+        { 
+            Console.WriteLine("ID is:" + this.ID);
+            Console.WriteLine("The Description is:" + this.Description);
+            Console.WriteLine("The Price is:" + this.Price);
+            Console.WriteLine("The Quantity is:" + this.Quantity);
+        }
     }
 }
