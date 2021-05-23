@@ -4,11 +4,27 @@ using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Threading;
 using UML_Console_Project.ProjectFiles;
+using System.Linq;
+using System.Text;
+using System.Diagnostics;
+using System.Runtime.InteropServices;
 
 namespace UML_Console_Project
 {
     class MySystem
     {
+
+        [DllImport("kernel32.dll", ExactSpelling = true)]
+        public static extern IntPtr GetConsoleWindow();
+        public static IntPtr ThisConsole = GetConsoleWindow();
+        [DllImport("user32.dll", CharSet = CharSet.Auto, SetLastError = true)]
+        public static extern bool ShowWindow(IntPtr hWnd, int nCmdShow);
+        public const int HIDE = 0;
+        public const int MAXIMIZE = 3;
+        public const int MINIMIZE = 6;
+        public const int RESTORE = 9;
+        
+
         static public Provider[] ProviderArr = new Provider[100];
         static public Customer[] CustomerArr = new Customer[100];
         static public Order[] OrderArr = new Order[100];
@@ -164,7 +180,7 @@ namespace UML_Console_Project
 
 
 
-        public void Login()
+        static public void Login()
         {
             int choice;
             Console.WriteLine("[1] Login as administrator");
@@ -189,6 +205,7 @@ namespace UML_Console_Project
             {
                 Console.Clear();
                 Exit();
+                
             }
 
             else
@@ -200,7 +217,7 @@ namespace UML_Console_Project
             
         }
 
-        public void LoginAsAdmin()
+        static public void LoginAsAdmin()
         {
             Console.Write("Enter username: ");
             string username = Console.ReadLine();
@@ -220,7 +237,7 @@ namespace UML_Console_Project
 
         }
 
-        public void LoginAsCustomer()
+        static public void LoginAsCustomer()
         {
             Console.Write("Enter username: ");
             string username = Console.ReadLine();
@@ -265,12 +282,13 @@ namespace UML_Console_Project
 
         static public void Logout()
         {
-            //testing
-            Console.WriteLine("logging out...");
+            Login();
         }
 
-        public void Exit()
-        { }
+        static public void Exit()
+        {
+            Console.Beep(400,750);
+        }
 
 
 
@@ -282,18 +300,25 @@ namespace UML_Console_Project
     {
         static void Main(string[] args)
         {
+            //opening console in fullscreen
+            Console.SetWindowSize(Console.LargestWindowWidth, Console.LargestWindowHeight);
+            MySystem.ShowWindow(MySystem.ThisConsole, MySystem.MAXIMIZE);
+            //console color
+                 Console.ForegroundColor = ConsoleColor.Green;
+            
+
             //"how to clear console + freeze "
             /*Console.WriteLine("hi");
-            Thread.Sleep(5000);
-            Console.Clear();
-            Console.WriteLine("hi, again");
-            Thread.Sleep(5000);*/
+           Thread.Sleep(5000);
+           Console.Clear();
+           Console.WriteLine("hi, again");
+           Thread.Sleep(5000);*/
+
             Provider.InaitialData();
             Customer.InaitialData();
-            MySystem s = new MySystem();
-            s.Login();
-            
-            
+            MySystem.Login();
+
+
 
         }
     }
