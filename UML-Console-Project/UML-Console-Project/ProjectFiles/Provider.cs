@@ -92,7 +92,7 @@ namespace UML_Console_Project.ProjectFiles
           double Average;
           Average = (r + this.Review)/2;
             
-            Review= Average * 100.0;
+            Review= Average;
         }
 
         public void AddItem(string ID, string Description, int Price, int Quantity)

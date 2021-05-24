@@ -17,5 +17,13 @@ namespace UML_Console_Project.ProjectFiles
             MySystem.OrderArr = new Order[100];
             MySystem.Storefiles();
         }
+
+        static public void AddItem(Item item)
+        {
+
+        }
+        
+
+
     }
 }

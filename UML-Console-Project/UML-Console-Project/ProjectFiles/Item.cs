@@ -24,23 +24,22 @@ namespace UML_Console_Project.ProjectFiles
             this.Price=price;
             this.Quantity=Quantity;
         }
-
-        public Item()
+        public int GetQuantity()
         {
-            this.ID = "";
-            this.Description = "";
-            this.Price = 0;
-            this.Quantity = 0;
+            return Quantity;
         }
+        public void SetQuantity(int Quantity)
+        {
+            this.Quantity = Quantity;
+        }
+
+        
 
         public string GetID()
         { 
            return this.ID;
         }
-        public int  GetQuantity()
-        { 
-            return this.Quantity;
-        }
+       
 
         public override string ToString()
         {
@@ -64,12 +63,6 @@ namespace UML_Console_Project.ProjectFiles
 
         }
 
-        public void printItem()
-        { 
-            Console.WriteLine("ID is:" + this.ID);
-            Console.WriteLine("The Description is:" + this.Description);
-            Console.WriteLine("The Price is:" + this.Price);
-            Console.WriteLine("The Quantity is:" + this.Quantity);
-        }
+        
     }
 }
