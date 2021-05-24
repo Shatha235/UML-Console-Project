@@ -10,7 +10,7 @@ using UML_Console_Project;
 
 namespace UML_Console_Project.ProjectFiles
 {
-
+    [Serializable]
     class Customer : User
     {
         

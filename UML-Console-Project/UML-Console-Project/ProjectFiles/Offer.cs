@@ -9,6 +9,8 @@ using System.Runtime.Serialization.Formatters.Binary;
 
 namespace UML_Console_Project.ProjectFiles
 {
+    [Serializable]
+
     class Offer 
     {
         string ID;

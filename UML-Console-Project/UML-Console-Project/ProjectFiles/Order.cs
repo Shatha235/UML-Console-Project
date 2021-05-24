@@ -9,6 +9,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 
 namespace UML_Console_Project.ProjectFiles
 {
+    [Serializable]
     class Order
     {
         static public void InaitialData()
