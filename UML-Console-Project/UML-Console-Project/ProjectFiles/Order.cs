@@ -9,7 +9,13 @@ using System.Runtime.Serialization.Formatters.Binary;
 
 namespace UML_Console_Project.ProjectFiles
 {
+    [Serializable]
     class Order
     {
+        static public void InaitialData()
+        {
+            MySystem.OrderArr = new Order[100];
+            MySystem.Storefiles();
+        }
     }
 }

@@ -9,6 +9,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 
 namespace UML_Console_Project.ProjectFiles
 {
+    [Serializable]
     class Item
     {    
         public string ID;
@@ -16,7 +17,7 @@ namespace UML_Console_Project.ProjectFiles
         public int Price;
         public int Quantity;
 
-        public  Item(string ID , string Description ,int price, int Quantity)
+        public  Item(string ID ="", string Description ="",int price=0, int Quantity=0)
         { 
             this.ID=ID;
             this.Description=Description;
@@ -36,8 +37,22 @@ namespace UML_Console_Project.ProjectFiles
         { 
            return this.ID;
         }
+        public int  GetQuantity()
+        { 
+            return this.Quantity;
+        }
 
-        public static Item AddItem(string ID,string Description,int Price,int Quantity)
+        public override string ToString()
+        {
+            return "ID: "+this.ID+"Description: "+this.Description+"Price: "+this.Price+"Quantity:"+this.Quantity;
+        }
+
+        public void ViewItem()
+        {
+            Console.WriteLine("ID: " + this.ID + "Description: " + this.Description + "Price: " + this.Price + "Quantity:" + this.Quantity);
+        }
+
+        public static Item initateItem(string ID,string Description,int Price,int Quantity)
         {
             Item it=new Item();
             it.ID = ID;
