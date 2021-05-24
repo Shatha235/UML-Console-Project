@@ -10,6 +10,7 @@ namespace UML_Console_Project
     {
         static void Main(string[] args)
         {
+            System.Console.WriteLine("Hello");
         }
     }
 }
