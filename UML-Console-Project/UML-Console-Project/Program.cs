@@ -36,6 +36,31 @@ namespace UML_Console_Project
         static public int OfCounter = 0;
 
 
+        static public Offer[] GetOffersByProvider(ref int j,string ProviderName) //j returns number of offers so we can use it in the loop in admin/customer
+        {
+           j = 0;
+            Offer[] o = new Offer[100];
+            for(int i=0;i<OfCounter;i++)
+            {
+                if (OfferArr[i].GetProviderName() == ProviderName)
+                    o[j++] = OfferArr[i];
+            }
+
+            return o;
+        }
+
+        static public void CancelOffer(string ID)
+        { int i = 0;
+            for(;i<OfCounter;i++)
+                if (OfferArr[i].GetID() == ID)
+                    break;
+
+            for (int j = i; j < OfCounter - 1; j++)
+                OfferArr[j] = OfferArr[j + 1];
+
+            OfCounter--;
+                
+        }
 
         static public void Storefiles()
         {
@@ -113,7 +138,7 @@ namespace UML_Console_Project
             //Customer
             if (File.Exists("CustomerFile.txt"))
             {
-                Cfile = new FileStream("Customer.txt", FileMode.Open, FileAccess.Read);
+                Cfile = new FileStream("CustomerFile.txt", FileMode.Open, FileAccess.Read);
                 CCounter = 0;
                 while (Cfile.Position < Cfile.Length)
                 {
@@ -158,7 +183,7 @@ namespace UML_Console_Project
             //Offer
             if (File.Exists("OfferFile.txt"))
             {
-                Offile = new FileStream("Offer.txt", FileMode.Open, FileAccess.Read);
+                Offile = new FileStream("OfferFile.txt", FileMode.Open, FileAccess.Read);
                 OfCounter = 0;
                 while (Offile.Position < Offile.Length)
                 {
@@ -305,17 +330,16 @@ namespace UML_Console_Project
             MySystem.ShowWindow(MySystem.ThisConsole, MySystem.MAXIMIZE);
             //console color
                  Console.ForegroundColor = ConsoleColor.Green;
-            
 
-            //"how to clear console + freeze "
-            /*Console.WriteLine("hi");
-           Thread.Sleep(5000);
-           Console.Clear();
-           Console.WriteLine("hi, again");
-           Thread.Sleep(5000);*/
 
-            Provider.InaitialData();
+            //Warning : only call if you wanna reset All the databases
+            //**********************
+            /*Provider.InaitialData();
             Customer.InaitialData();
+            Offer.InaitialData();
+            Order.InaitialData();*/
+            //**********************]
+            MySystem.Loadfiles();
             MySystem.Login();
 
 

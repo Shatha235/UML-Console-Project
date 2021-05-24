@@ -18,7 +18,7 @@ namespace UML_Console_Project.ProjectFiles
         Provider provider;
 
 
-        public Customer(string Name, string Password, double CashCredit)
+        public Customer(string Name="", string Password="", double CashCredit=0.0)
         {
             this.Name = Name;
             this.Password = Password;
@@ -199,7 +199,7 @@ namespace UML_Console_Project.ProjectFiles
             Console.WriteLine("Enter the quantity that you want:  ");
             int quantityItem =Convert.ToInt32( Console.ReadLine());
             // he can enter the IDs of the offers he wants to buy
-            calculateTotalCost(NameP,IdItem,quantityItem);
+            //calculateTotalCost(NameP,IdItem,quantityItem);
 
 
         }

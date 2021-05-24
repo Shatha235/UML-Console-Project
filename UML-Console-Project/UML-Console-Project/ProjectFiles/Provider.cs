@@ -20,7 +20,7 @@ namespace UML_Console_Project.ProjectFiles
         private Item[] ListOfItems;
         private int Income;
 
-        public Provider(string Name, string Category, string Location, double Review, double DeliveryRate, Item[] ListOfItems, int Income)
+        public Provider(string Name = "", string Category = "", string Location = "", double Review = 0.0, double DeliveryRate = 0.0, Item[] ListOfItems=null, int Income=0)
         {
             this.Name = Name;
             this.Category = Category;
