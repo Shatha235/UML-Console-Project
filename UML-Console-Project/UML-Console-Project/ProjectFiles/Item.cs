@@ -33,22 +33,13 @@ namespace UML_Console_Project.ProjectFiles
             this.Quantity = Quantity;
         }
 
-        public Item()
-        {
-            this.ID = "";
-            this.Description = "";
-            this.Price = 0;
-            this.Quantity = 0;
-        }
+        
 
         public string GetID()
         { 
            return this.ID;
         }
-        public int  GetQuantity()
-        { 
-            return this.Quantity;
-        }
+       
 
         public override string ToString()
         {

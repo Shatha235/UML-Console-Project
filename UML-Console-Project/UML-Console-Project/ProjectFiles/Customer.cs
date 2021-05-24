@@ -195,6 +195,7 @@ namespace UML_Console_Project.ProjectFiles
             {
                 I[i].ViewItem();
             }
+            //GetOffersByProvider 
 
             int choice;
             bool f = true;

@@ -18,10 +18,11 @@ namespace UML_Console_Project.ProjectFiles
             MySystem.Storefiles();
         }
 
-        static public void AddOrder(Item item)
+        static public void AddItem(Item item)
         {
 
         }
+        
 
 
     }
