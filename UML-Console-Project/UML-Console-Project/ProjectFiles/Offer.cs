@@ -54,6 +54,12 @@ namespace UML_Console_Project.ProjectFiles
             Console.WriteLine("ID: " + ID + "    Provider name: " + ProviderName + "    ItemID: " + ItemID + "  Quantity: " + Quantity + "  Price: " + Price);
         }
 
+        public override string ToString()
+        {
+            //try to also get the name of the item and print it
+            return("ID: " + ID + "    Provider name: " + ProviderName + "    ItemID: " + ItemID + "  Quantity: " + Quantity + "  Price: " + Price);
+        }
+
         public void AddOffer(string ID , string ProviderName , string ItemID , int Quantity, int Price)
         {
             Offer f = new Offer(ID,ProviderName,ItemID,Quantity,Price);

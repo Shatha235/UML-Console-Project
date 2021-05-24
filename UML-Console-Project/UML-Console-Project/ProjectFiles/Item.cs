@@ -46,6 +46,11 @@ namespace UML_Console_Project.ProjectFiles
             return "ID: "+this.ID+"Description: "+this.Description+"Price: "+this.Price+"Quantity:"+this.Quantity;
         }
 
+        public void ViewItem()
+        {
+            Console.WriteLine("ID: " + this.ID + "Description: " + this.Description + "Price: " + this.Price + "Quantity:" + this.Quantity);
+        }
+
         public static Item AddItem(string ID,string Description,int Price,int Quantity)
         {
             Item it=new Item();
