@@ -36,6 +36,15 @@ namespace UML_Console_Project.ProjectFiles
         { 
            return this.ID;
         }
+        public int  GetQuantity()
+        { 
+            return this.Quantity;
+        }
+
+        public override string ToString()
+        {
+            return "ID: "+this.ID+"Description: "+this.Description+"Price: "+this.Price+"Quantity:"+this.Quantity;
+        }
 
         public static Item AddItem(string ID,string Description,int Price,int Quantity)
         {

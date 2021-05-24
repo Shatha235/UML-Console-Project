@@ -9,7 +9,8 @@ using System.Runtime.Serialization.Formatters.Binary;
 
 namespace UML_Console_Project.ProjectFiles
 {
-    class Offer
+    class Offer 
     {
+        private 
     }
 }

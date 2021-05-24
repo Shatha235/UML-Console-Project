@@ -10,7 +10,7 @@ using UML_Console_Project;
 
 namespace UML_Console_Project.ProjectFiles
 {
-    [Serializable]
+
     class Customer : User
     {
         
@@ -26,30 +26,6 @@ namespace UML_Console_Project.ProjectFiles
 
         }
 
-        public void ReadProvider(string location, string category)
-        {
-            //i put it in a comment to ignore the error 
-            //<jebril>
-
-
-            /*Provider[] pArr = new Provider[6];
-            int i = 0;
-            provider.read(pArr);
-            foreach (Provider pr in pArr)
-            {
-                if (pr.GetLocation() == location || pr.GetCategory() == category)
-                {
-                }
-
-
-            }*/
-
-
-
-        }
-
-        //sorry shatha and eslam i just wanted to test something then i ended up writing these functions XD
-        //<jebril>
 
         void Setall(string Name,string Password,double CashCredit)
         {
@@ -66,7 +42,10 @@ namespace UML_Console_Project.ProjectFiles
         {
             return Password;
         }
-
+        public string GetCashCredit()
+        { 
+            return Convert.ToString (CashCredit) + " JD";
+        }
 
         static public void InaitialData()
         {
@@ -88,8 +67,6 @@ namespace UML_Console_Project.ProjectFiles
 
             Customer c4 = new Customer("reem", "55", 120);
             MySystem.CustomerArr[4] = c4;
-
-
            
             MySystem.Storefiles();
         }
@@ -146,15 +123,69 @@ namespace UML_Console_Project.ProjectFiles
                 Options();
             }
         }
+        public void Read_loc_Cat(string Location,string Category)
+        { 
+            MySystem.ProviderArr=new Provider[100] ;
+            MySystem.Loadfiles();
+            for (int i=0; i <MySystem.PCounter;i++)
+            { 
+                
+               if(Location== MySystem.ProviderArr[i].GetLocation() && Category==MySystem.ProviderArr[i].GetCategory())
+                    Console.WriteLine(MySystem.ProviderArr[i]);
+              
+             }
+        }
+        
+        public void ReadItem (string name)
+        {  
+            Item [] ItemArr=new Item[100];
+            MySystem.ProviderArr=new Provider[100] ;
+            MySystem.Loadfiles();
+            for (int i=0; i <MySystem.PCounter;i++)
+            { 
+               if (MySystem.ProviderArr[i].GetName()==name)
+                    showItem();
+             }
+        }
+        public void showItem()
+        { 
+            Item [] ItemArr=new Item[100];
+            MySystem.ProviderArr=new Provider[100] ;
+            MySystem.Loadfiles();
+            for (int i=0; i <MySystem.PCounter;i++)
+            { 
+               ItemArr[i]=MySystem.ProviderArr[i].GetListOfItems();
+            }
+            for (int c=0; c<ItemArr.Length;c++)
+            { 
+                Console.WriteLine(ItemArr[c]);
+            }
+        }
+        calculateTotalCost(string ID,int Quantity) //This function is temporery until we know ID offer
+        { 
+
+        }
+
+                
+
         public void PlaceNewOrder()
         {
-            //testing
-            Console.WriteLine("PlaceNewOrder");
 
             Console.WriteLine("Enter which of this it is current location (Area1 or Area2 or Area3 ):");
             string Location = Console.ReadLine();
             Console.WriteLine("Enter  the category of the provider please: ");
             string Category = Console.ReadLine();
+            Read_loc_Cat(Location,Category);
+            Console.WriteLine("Enter the provider name please: ");
+            string NameP = Console.ReadLine();
+            ReadItem(NameP);
+            Console.WriteLine("Enter ID of the item please: ");
+            string IdItem = Console.ReadLine();
+            Console.WriteLine("Enter the quantity that you want:  ");
+            int quantityItem =Convert.ToInt32( Console.ReadLine());
+            // he can enter the IDs of the offers he wants to buy
+            calculateTotalCost(IdItem,quantityItem );
+
 
         }
 

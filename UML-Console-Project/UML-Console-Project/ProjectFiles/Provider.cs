@@ -34,7 +34,19 @@ namespace UML_Console_Project.ProjectFiles
         { 
             return this.Name;
         }
-
+        // To jebril , please check if this function is true or not ... Thank you. 
+        public Item GetListOfItems()
+        {  
+            Item [] item = new Item[100];
+            int counter =0;
+           for(int r=0; r<this.ListOfItems.Length;r++)
+             {    item[r]=this.ListOfItems[r];
+                   counter++;  
+            }
+           return item[counter];
+                      
+        }
+       
         public string GetLocation()
         {
             return this.Location;
@@ -44,11 +56,19 @@ namespace UML_Console_Project.ProjectFiles
         {
             return this.Category;
         }
-        public double GetDeliveryRate()
+        public string  CalculateDeliveryRate()
         {
-            return this.DeliveryRate;
-            //Convert.ToString(100 * this.DeliveryRate) + "%";
+           //return (100 * this.DeliveryRate);
+          return Convert.ToString(100 * this.DeliveryRate) + "%";
         }
+        public string  CalculateReview(double r)
+        {
+          double Average;
+          Average = (r + this.Review)/2;
+          return Convert.ToString(100 * Average) + "%";
+        }
+
+        
         public void Setall(string Name,string Category,string Location,double Review,double DeliveryRate,Item[] ListOfItems, int Income) 
         {
             this.Name = Name;
