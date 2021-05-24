@@ -9,6 +9,7 @@ using UML_Console_Project;
 
 namespace UML_Console_Project.ProjectFiles
 {
+    [Serializable]
     class User
     {
         protected string Name;

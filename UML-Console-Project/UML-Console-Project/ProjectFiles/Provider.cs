@@ -197,6 +197,8 @@ namespace UML_Console_Project.ProjectFiles
             Provider p8 = new Provider("C-Market", "Market", "Area1", 0.92, 0.14, i9, 900);
             MySystem.ProviderArr[8]=p8;
             p8.ItemCounter = 5;
+
+            MySystem.PCounter = 9;
             MySystem.Storefiles();
            
 

@@ -22,7 +22,7 @@ namespace UML_Console_Project
         public const int HIDE = 0;
         public const int MAXIMIZE = 3;
         public const int MINIMIZE = 6;
-        public const int RESTORE = 9;
+        public const int RESTORE = 9; 
         
 
         static public Provider[] ProviderArr = new Provider[100];
@@ -30,10 +30,10 @@ namespace UML_Console_Project
         static public Order[] OrderArr = new Order[100];
         static public Offer[] OfferArr = new Offer[100];
 
-        static public int PCounter = 0;
-        static public int CCounter = 0;
-        static public int OrCounter = 0;
-        static public int OfCounter = 0;
+        static public int PCounter;
+        static public int CCounter ;
+        static public int OrCounter ;
+        static public int OfCounter ;
 
 
         static public Offer[] GetOffersByProvider(ref int j,string ProviderName) //j returns number of offers so we can use it in the loop in admin/customer
@@ -96,7 +96,7 @@ namespace UML_Console_Project
             //Provider
             for (int i = 0; i < PCounter; i++)
             {
-                bf.Serialize(Pfile, ProviderArr);
+                bf.Serialize(Pfile, ProviderArr[i]);
             }
             Pfile.Close();
 
@@ -104,7 +104,7 @@ namespace UML_Console_Project
             //Customer
             for (int i = 0; i < CCounter; i++)
             {
-                bf.Serialize(Cfile, CustomerArr);
+                bf.Serialize(Cfile, CustomerArr[i]);
             }
             Cfile.Close();
 
@@ -112,7 +112,7 @@ namespace UML_Console_Project
             //Order
             for (int i = 0; i < OrCounter; i++)
             {
-                bf.Serialize(Orfile, OrderArr);
+                bf.Serialize(Orfile, OrderArr[i]);
             }
             Orfile.Close();
 
@@ -120,7 +120,7 @@ namespace UML_Console_Project
             //Offer
             for (int i = 0; i < OfCounter; i++)
             {
-                bf.Serialize(Offile, OfferArr);
+                bf.Serialize(Offile, OfferArr[i]);
 
             }
             Offile.Close();
@@ -130,6 +130,10 @@ namespace UML_Console_Project
 
         static public void Loadfiles()
         {
+            ProviderArr = new Provider[100];
+            CustomerArr = new Customer[100];
+            OrderArr = new Order[100];
+            OfferArr = new Offer[100];
             FileStream Pfile, Cfile, Offile, Orfile;
             BinaryFormatter bf = new BinaryFormatter();
 
@@ -336,11 +340,17 @@ namespace UML_Console_Project
         }
 
 
-
+        static public void Reset()
+        {
+            Provider.InaitialData();
+            Customer.InaitialData();
+            Offer.InaitialData();
+            Order.InaitialData();
+        }
 
     }
 
-
+    
     class Program
     {
         static void Main(string[] args)
@@ -354,10 +364,7 @@ namespace UML_Console_Project
 
             //Warning : only call if you wanna reset All the databases
             //**********************
-            /*Provider.InaitialData();
-            Customer.InaitialData();
-            Offer.InaitialData();
-            Order.InaitialData();*/
+            //MySystem.Reset();
             //**********************]
             MySystem.Loadfiles();
             MySystem.Login();

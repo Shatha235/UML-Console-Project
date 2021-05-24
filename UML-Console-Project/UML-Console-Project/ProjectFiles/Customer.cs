@@ -65,19 +65,24 @@ namespace UML_Console_Project.ProjectFiles
             MySystem.CustomerArr = new Customer[100]; // to reset the array before initiating <jebril>
             Customer c0 = new Customer("ali", "11", 100);
             MySystem.CustomerArr[0] = c0;
+            
 
             Customer c1 = new Customer("omar", "22", 75);
             MySystem.CustomerArr[1] = c1;
+            
 
             Customer c2 = new Customer("maha", "33", 50);
             MySystem.CustomerArr[2] = c2;
+            
 
             Customer c3 = new Customer("anas", "44", 80);
             MySystem.CustomerArr[3] = c3;
+            
 
             Customer c4 = new Customer("reem", "55", 120);
             MySystem.CustomerArr[4] = c4;
-           
+            MySystem.CCounter = 5;
+
             MySystem.Storefiles();
         }
 
