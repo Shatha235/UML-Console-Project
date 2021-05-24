@@ -13,11 +13,8 @@ namespace UML_Console_Project.ProjectFiles
     [Serializable]
     class Customer : User
     {
-        
         private double CashCredit;
-        Provider provider;
-
-
+ 
         public Customer(string Name="", string Password="", double CashCredit=0.0)
         {
             this.Name = Name;
@@ -33,6 +30,7 @@ namespace UML_Console_Project.ProjectFiles
             this.Password = Password;
             this.CashCredit = CashCredit;
         }
+
         public string GetUsername()
         {
             return Name;
@@ -42,9 +40,21 @@ namespace UML_Console_Project.ProjectFiles
         {
             return Password;
         }
-        public string GetCashCredit()
+        public double GetCashCredit()
         { 
-            return Convert.ToString (CashCredit) + " JD";
+            return CashCredit;
+        }
+
+        public void View()
+        {
+            
+            Console.WriteLine("Name: " + Name + "    Password " + Password+ "    CashCredit: " + CashCredit);
+        }
+
+        public override string ToString()
+        {
+            
+            return "Name: " + Name + "    Password " + Password + "    CashCredit: " + CashCredit;
         }
 
         static public void InaitialData()
@@ -123,10 +133,11 @@ namespace UML_Console_Project.ProjectFiles
                 Options();
             }
         }
-        public void Read_loc_Cat(string Location,string Category)
+
+        //1 fixed it's name was : Read_loc_Cat
+        public void ViewProviders(string Location,string Category)
         { 
-            MySystem.ProviderArr=new Provider[100] ;
-            MySystem.Loadfiles();
+            
             for (int i=0; i <MySystem.PCounter;i++)
             { 
                 
@@ -136,31 +147,13 @@ namespace UML_Console_Project.ProjectFiles
              }
         }
         
-        public void ReadItem (string name)
-        {  
-            Item [] ItemArr=new Item[100];
-            MySystem.ProviderArr=new Provider[100] ;
-            MySystem.Loadfiles();
-            for (int i=0; i <MySystem.PCounter;i++)
-            { 
-               if (MySystem.ProviderArr[i].GetName()==name)
-                    showItem();
-             }
-        }
-        public void showItem()
-        { 
-            Item [] ItemArr=new Item[100];
-            MySystem.ProviderArr=new Provider[100] ;
-            MySystem.Loadfiles();
-            for (int i=0; i <MySystem.PCounter;i++)
-            { 
-               ItemArr[i]=MySystem.ProviderArr[i].GetListOfItems();
-            }
-            for (int c=0; c<ItemArr.Length;c++)
-            { 
-                Console.WriteLine(ItemArr[c]);
-            }
-        }
+        //2
+        
+        //3
+     
+
+        //4
+
        /* public double calculateTotalCost(string name,string ID,int Quantity) //This function is temporery until we know ID offer
         { 
                 // ex : l1 : 4
@@ -182,7 +175,7 @@ namespace UML_Console_Project.ProjectFiles
         }*/
 
                 
-
+        //5
         public void PlaceNewOrder()
         {
 
@@ -190,10 +183,17 @@ namespace UML_Console_Project.ProjectFiles
             string Location = Console.ReadLine();
             Console.WriteLine("Enter  the category of the provider please: ");
             string Category = Console.ReadLine();
-            Read_loc_Cat(Location,Category);
+            ViewProviders(Location,Category);
             Console.WriteLine("Enter the provider name please: ");
             string NameP = Console.ReadLine();
-            ReadItem(NameP);
+            int j=0;
+            Item []I =MySystem.GetItemsByProvider(ref j,NameP);
+            for (int i=0;i<j;i++)
+            {
+                I[i].ViewItem();
+            }
+
+
             Console.WriteLine("Enter ID of the item please: ");
             string IdItem = Console.ReadLine();
             Console.WriteLine("Enter the quantity that you want:  ");
@@ -223,10 +223,7 @@ namespace UML_Console_Project.ProjectFiles
             Console.WriteLine("PostAReview");
         }
 
-        public void setProvider(Provider p)
-        {
-            provider = p;
-        }
+        
 
 
     }

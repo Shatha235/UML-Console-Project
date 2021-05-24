@@ -49,6 +49,26 @@ namespace UML_Console_Project
             return o;
         }
 
+        static public Item[] GetItemsByProvider(ref int j, string ProviderName) //j returns number of items so we can use it in the loop in admin/customer
+        {
+            
+            Item[] I = new Item[100];
+            int i = 0;
+            for (; i < PCounter; i++)
+            {
+                if (ProviderArr[i].GetName() == ProviderName)
+                    break;
+            }
+            for(int k=0;k<ProviderArr[i].ItemCounter;k++)
+            {
+                I[k]=ProviderArr[i].GetItem(k);
+            }
+
+
+            j = ProviderArr[i].ItemCounter;
+            return I;
+        }
+
         static public void CancelOffer(string ID)
         { int i = 0;
             for(;i<OfCounter;i++)
