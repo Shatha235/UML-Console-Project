@@ -22,8 +22,8 @@ namespace UML_Console_Project
         public const int HIDE = 0;
         public const int MAXIMIZE = 3;
         public const int MINIMIZE = 6;
-        public const int RESTORE = 9; 
-        
+        public const int RESTORE = 9;
+
 
         static public Provider[] ProviderArr = new Provider[100];
         static public Customer[] CustomerArr = new Customer[100];
@@ -31,16 +31,16 @@ namespace UML_Console_Project
         static public Offer[] OfferArr = new Offer[100];
 
         static public int PCounter;
-        static public int CCounter ;
-        static public int OrCounter ;
-        static public int OfCounter ;
+        static public int CCounter;
+        static public int OrCounter;
+        static public int OfCounter;
 
 
-        static public Offer[] GetOffersByProvider(ref int j,string ProviderName) //j returns number of offers so we can use it in the loop in admin/customer
+        static public Offer[] GetOffersByProvider(ref int j, string ProviderName) //j returns number of offers so we can use it in the loop in admin/customer
         {
-           j = 0;
+            j = 0;
             Offer[] o = new Offer[100];
-            for(int i=0;i<OfCounter;i++)
+            for (int i = 0; i < OfCounter; i++)
             {
                 if (OfferArr[i].GetProviderName() == ProviderName)
                     o[j++] = OfferArr[i];
@@ -48,7 +48,22 @@ namespace UML_Console_Project
 
             return o;
         }
+        static public Item ChangeAndReturnItem(string Pname,string ID,int Quantity)
+        {
+            int i = 0;
+            for (; i < PCounter; i++)
+            {
+                if (ProviderArr[i].GetName() == Pname)
+                    break;
+            }
+            for(int s=0;s<ProviderArr[i].ItemCounter;s++)
+            if(ProviderArr[i].GetItem(s).GetID()==ID)
+                {
+                    Order.AddOrder(ProviderArr[i].GetItem(s));
 
+
+                }
+        }
         static public Item[] GetItemsByProvider(ref int j, string ProviderName) //j returns number of items so we can use it in the loop in admin/customer
         {
             

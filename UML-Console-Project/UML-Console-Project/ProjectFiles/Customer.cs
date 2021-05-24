@@ -196,43 +196,44 @@ namespace UML_Console_Project.ProjectFiles
                 I[i].ViewItem();
             }
 
-            int choice=0;
+            int choice;
+            bool f = true;
 
             do
             {
                 Console.Clear();
-                Console.WriteLine("[1] Login as administrator");
-                Console.WriteLine("[2] Login as customer");
-                Console.WriteLine("[3] Exit");
+                Console.WriteLine("[1] Add an item to the order");
+                Console.WriteLine("[2] Add an offer to the order");
+                Console.WriteLine("[3] Finished Adding to the order");
                 Console.Write("Enter your choice: ");
                 choice = Convert.ToInt32(Console.ReadLine());
 
                 if (choice == 1)
                 {
-                    
+                    Console.WriteLine("\n\nPlaase Enter the ID and the Quantity of the item you want to add");
+                    Console.Write("ID: ");
+                    string ID = Console.ReadLine();
+                    Console.Write("Quantity: ");
+                    int Quantity = Convert.ToInt32(Console.ReadLine());
+                    //function in items class , takes ID and Quantity, to decrease quantity and add item to list of items in order object
+                    //cost counter
+                    for (int l=0;l<j;l++)
+                    {
 
+                    }
                 }
 
                 else if (choice == 2)
                 {
-                    Console.Clear();
+
 
                 }
-
                 else if (choice == 3)
-                {
-                    Console.Clear();
+                    f = false;
+               
 
-
-                }
-
-                else
-                {
-                    Sh.Msg("You entered a wrong choice,\nplease enter a valid choice from 1-3 to continue...");
-
-
-                }
-            } while (choice != 3);
+                
+            } while (f==true);
 
             Console.WriteLine("Enter the ID of the item please: ");
             string IdItem = Console.ReadLine();

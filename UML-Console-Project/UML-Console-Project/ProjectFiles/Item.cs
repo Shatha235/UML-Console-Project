@@ -24,6 +24,14 @@ namespace UML_Console_Project.ProjectFiles
             this.Price=price;
             this.Quantity=Quantity;
         }
+        public int GetQuantity()
+        {
+            return Quantity;
+        }
+        public void SetQuantity(int Quantity)
+        {
+            this.Quantity = Quantity;
+        }
 
         public Item()
         {
@@ -64,12 +72,6 @@ namespace UML_Console_Project.ProjectFiles
 
         }
 
-        public void printItem()
-        { 
-            Console.WriteLine("ID is:" + this.ID);
-            Console.WriteLine("The Description is:" + this.Description);
-            Console.WriteLine("The Price is:" + this.Price);
-            Console.WriteLine("The Quantity is:" + this.Quantity);
-        }
+        
     }
 }
