@@ -11,9 +11,9 @@ using UML_Console_Project.ProjectFiles;
 
 namespace UML_Console_Project.ProjectFiles
 {
-    class Admin:User
+    class Admin : User
     {
-        
+
 
         //I added this function here to organize the code a little more,However,I implemented it since it  belongs to the system originally
         //<jebril>
@@ -36,7 +36,7 @@ namespace UML_Console_Project.ProjectFiles
             if (choice == 1)
             {
                 Console.Clear();
-                AddItem(PCounter, ProviderArr);
+                AddItem();
             }
 
             else if (choice == 2)
@@ -95,48 +95,59 @@ namespace UML_Console_Project.ProjectFiles
             }
 
         }
-        static public void AddItem(int PCounter, Provider[] ProviderArr)
+        static public void AddItem()
         {
-            
-            string ID , description , providerName;
-            int qty , price;
+
+            string ID, description, providerName;
+            int qty, price;
             bool flag = false;
 
-            while(!flag)
-            Console.WriteLine("AddItem\n");
-            Console.WriteLine("Enter item's information\n");
-            Console.WriteLine("ID = ");
-            ID = Console.ReadLine();
-            Console.WriteLine("Description : ");
-            description = Console.ReadLine();
-            Console.WriteLine("Price : ");
-            price = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine("Quantity : ");
-            qty = Convert.ToInt32(Console.ReadLine());
-           
-            providerName = Console.ReadLine();
-            for(int i = 0; i<PCounter; i++)
+            while (!flag)
             {
-                if(providerName == ProviderArr[i].GetName())
+                Console.WriteLine("AddItem\n");
+                Console.WriteLine("Enter item's information\n");
+                Console.WriteLine("ID = ");
+                ID = Console.ReadLine();
+                Console.WriteLine("Description : ");
+                description = Console.ReadLine();
+                Console.WriteLine("Price : ");
+                price = Convert.ToInt32(Console.ReadLine());
+                Console.WriteLine("Quantity : ");
+                qty = Convert.ToInt32(Console.ReadLine());
+                Console.WriteLine("Enter provider's name : ");
+                providerName = Console.ReadLine();
+                for (int i = 0; i <MySystem.PCounter; i++)
                 {
-                    flag = true;
-                    ProviderArr[i].AddItem(ID,description,price,qty);
-                Console.WriteLine("Item was added successfully");
-                    break;
+                    if (providerName == MySystem.ProviderArr[i].GetName())
+                    {
+                        flag = true;
+                        MySystem.ProviderArr[i].AddItem(ID, description, price, qty);
+                        Console.WriteLine("Item was added successfully");
+                        break;
+                    }
                 }
+
+
+                if (!flag)
+                {
+                    Console.Clear();
+                    Sh.Msg("Provider entered does not exist");
+                }
+
             }
-            if (!flag)
-            {
-                Console.Clear();
-                Sh.Msg("Provider entered does not exist");
-            }
-            
-        }
         
+        }
+    
+
         static public void AddOffer()
         {
             Console.WriteLine("AddOffer");
+            Console.WriteLine("Enter provider's name : ");
+            string providerName = Console.ReadLine();
+            for(int i=0;i<MySystem.PCounter;i++)
+            {
 
+            }
         }
 
         static public void ViewAllProviders()
