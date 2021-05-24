@@ -161,10 +161,25 @@ namespace UML_Console_Project.ProjectFiles
                 Console.WriteLine(ItemArr[c]);
             }
         }
-        calculateTotalCost(string ID,int Quantity) //This function is temporery until we know ID offer
+       /* public double calculateTotalCost(string name,string ID,int Quantity) //This function is temporery until we know ID offer
         { 
+                // ex : l1 : 4
+                //  quntity updated ,  price * Quantity=4*4=16 jd 
+            // Delivery cost= delivery rate*the cost of the ordered items.( price * Quantity)
+            // Total cost = price * Quantity + Delivery cost  .... cashcredit update
+            double deliveryRate;
+            Item [] item = new Item [100];
+            MySystem.ProviderArr=new Provider[100];
+            MySystem.Loadfiles();
+            for (int i=0; i < MySystem.PCounter; i++ )
+            { if (MySystem.ProviderArr[i].GetName==name)
+                    deliveryRate=MySystem.ProviderArr[i].CalculateDeliveryRate();  
+            }
+            for (int t=0 ; t < MySystem.PCounter;t++ )
+            {
 
-        }
+            }
+        }*/
 
                 
 
@@ -184,7 +199,7 @@ namespace UML_Console_Project.ProjectFiles
             Console.WriteLine("Enter the quantity that you want:  ");
             int quantityItem =Convert.ToInt32( Console.ReadLine());
             // he can enter the IDs of the offers he wants to buy
-            calculateTotalCost(IdItem,quantityItem );
+            calculateTotalCost(NameP,IdItem,quantityItem);
 
 
         }
