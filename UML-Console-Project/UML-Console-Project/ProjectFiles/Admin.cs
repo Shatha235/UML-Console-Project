@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using UML_Console_Project;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
+using UML_Console_Project.ProjectFiles;
+
 
 namespace UML_Console_Project.ProjectFiles
 {
@@ -16,7 +18,7 @@ namespace UML_Console_Project.ProjectFiles
         //I added this function here to organize the code a little more,However,I implemented it since it  belongs to the system originally
         //<jebril>
 
-        static public void Options()
+        static public void Options(int PCounter, Provider[] ProviderArr)
         {
             int choice;
             Console.WriteLine("[1] Add new item for a specific provider");
@@ -34,7 +36,7 @@ namespace UML_Console_Project.ProjectFiles
             if (choice == 1)
             {
                 Console.Clear();
-                AddItem();
+                AddItem(PCounter, ProviderArr);
             }
 
             else if (choice == 2)
@@ -88,16 +90,49 @@ namespace UML_Console_Project.ProjectFiles
             else
             {
                 Sh.Msg("You entered a wrong choice,\nplease enter a valid choice from 1-9 to continue...");
-                Options();
+                Options(PCounter, ProviderArr);
+
             }
 
         }
-
-        static public void AddItem()
+        static public void AddItem(int PCounter, Provider[] ProviderArr)
         {
-            Console.WriteLine("AddItem");
-        }
+            
+            string ID , description , providerName;
+            int qty , price;
+            bool flag = false;
 
+            while(!flag)
+            Console.WriteLine("AddItem\n");
+            Console.WriteLine("Enter item's information\n");
+            Console.WriteLine("ID = ");
+            ID = Console.ReadLine();
+            Console.WriteLine("Description : ");
+            description = Console.ReadLine();
+            Console.WriteLine("Price : ");
+            price = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Quantity : ");
+            qty = Convert.ToInt32(Console.ReadLine());
+           
+            providerName = Console.ReadLine();
+            for(int i = 0; i<PCounter; i++)
+            {
+                if(providerName == ProviderArr[i].GetName())
+                {
+                    flag = true;
+                    ProviderArr[i].AddItem(ID,description,price,qty);
+                Console.WriteLine("Item was added successfully");
+                    break;
+                }
+            }
+            if (!flag)
+            {
+                Console.Clear();
+                Sh.Msg("Provider entered does not exist");
+            }
+            
+        }
+        
         static public void AddOffer()
         {
             Console.WriteLine("AddOffer");

@@ -22,8 +22,9 @@ namespace UML_Console_Project
         public const int HIDE = 0;
         public const int MAXIMIZE = 3;
         public const int MINIMIZE = 6;
-        public const int RESTORE = 9; 
-        
+        public const int RESTORE = 9;
+
+  
 
         static public Provider[] ProviderArr = new Provider[100];
         static public Customer[] CustomerArr = new Customer[100];
@@ -275,7 +276,7 @@ namespace UML_Console_Project
             if (username == "admin" && password == "00")
             {
                 Console.Clear();
-                Admin.Options();
+                Admin.Options(PCounter, ProviderArr);
             }
             else
             {
@@ -355,6 +356,9 @@ namespace UML_Console_Project
     {
         static void Main(string[] args)
         {
+
+            Admin admin = new Admin();
+
             //opening console in fullscreen
             Console.SetWindowSize(Console.LargestWindowWidth, Console.LargestWindowHeight);
             MySystem.ShowWindow(MySystem.ThisConsole, MySystem.MAXIMIZE);
