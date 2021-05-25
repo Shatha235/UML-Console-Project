@@ -213,7 +213,7 @@ namespace UML_Console_Project
             //Order
             if (File.Exists("OrderFile.txt"))
             {
-                Orfile = new FileStream("Order.txt", FileMode.Open, FileAccess.Read);
+                Orfile = new FileStream("OrderFile.txt", FileMode.Open, FileAccess.Read);
                 OrCounter = 0;
                 while (Orfile.Position < Orfile.Length)
                 {
