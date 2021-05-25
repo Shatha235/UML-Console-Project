@@ -100,9 +100,7 @@ namespace UML_Console_Project.ProjectFiles
 
             string ID, description, providerName;
             int qty, price;
-            bool flag = false;
-
-            while (!flag)
+          
             {
                 Console.WriteLine("AddItem");
                 Console.WriteLine("Enter item's information");
@@ -120,7 +118,7 @@ namespace UML_Console_Project.ProjectFiles
                 {
                     if (providerName == MySystem.ProviderArr[i].GetName())
                     {
-                        flag = true;
+                      
                         MySystem.ProviderArr[i].AddItem(ID, description, price, qty);
                         Console.WriteLine("Item was added successfully");
                         break;
@@ -128,12 +126,7 @@ namespace UML_Console_Project.ProjectFiles
                 }
 
             }
-              if (!flag)
-                {
-                    Console.Clear();
-                    Sh.Msg("Provider entered does not exist");
-               }
-                
+             
 
             
       
