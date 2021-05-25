@@ -200,8 +200,7 @@ namespace UML_Console_Project.ProjectFiles
             {
                 if (MySystem.OrderArr[i].GetStatus() == "paid")
                 {
-                    string status = Order.ChangeStatus(MySystem.OrderArr[i].GetStatus(), "delivered");
-                    MySystem.OrderArr[i].SetStatus(status);
+                    MySystem.OrderArr[i].SetStatus("delivered");
                 }
                 
             }
@@ -212,8 +211,13 @@ namespace UML_Console_Project.ProjectFiles
         static public void CancelOffer()
         {
             Console.WriteLine("CancelOffer");
-
+            ViewAllOffers();
+            Console.WriteLine("Enter offer's ID : ");
+            string ID = Console.ReadLine();
+            MySystem.CancelOffer(ID);
+            MySystem.Storefiles();
         }
-
+        
     }
+       
 }

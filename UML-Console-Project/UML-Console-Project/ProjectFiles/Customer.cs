@@ -290,8 +290,7 @@ namespace UML_Console_Project.ProjectFiles
             { 
                if(MySystem.OrderArr[c].GetID()==ID)
                 { 
-                    string st= MySystem.OrderArr[c].ChangeStatus("not paid","paid");
-                    MySystem.OrderArr[c].SetStatus(st);
+                    MySystem.OrderArr[c].SetStatus("paid");
                 }
 
             }
