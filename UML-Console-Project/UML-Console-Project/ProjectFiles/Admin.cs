@@ -153,11 +153,14 @@ namespace UML_Console_Project.ProjectFiles
             Console.WriteLine("Offer was added successfully.");
 
         }
-
+        
         static public void ViewAllProviders()
-        {
+        { 
             Console.WriteLine("ViewAllProviders");
-
+            for (int i = 0; i < MySystem.PCounter; i++)
+            {
+                 MySystem.ProviderArr[i].View();
+            }
         }
 
         static public void ViewAllCustomers()

@@ -55,7 +55,15 @@ namespace UML_Console_Project.ProjectFiles
 
         public void View()
         {
-            Console.WriteLine("Name: " + Name + "    Category: " + Category + "    Location: " + Location + "    Review: " + Convert.ToString(100*Review) + "%" + "    DeliveryRate: " + Convert.ToString(100 *DeliveryRate) + "%" + "    Income: " + Income) ;
+            Item[] Allitems = new Item[100];
+            int i = 0;
+            Console.WriteLine("Name: " + Name + "    Category: " + Category + "    Location: " + Location + "    Review: " + Convert.ToString(100 * Review) + "%" + "    DeliveryRate: " + Convert.ToString(100 * DeliveryRate) + "%"+ "    Income: " + Income + "\n Items:  ");
+            for (; i < ItemCounter; i++)
+            {
+
+                Console.WriteLine(ListOfItems[i]);
+                
+            }
         }
 
         public override string ToString()

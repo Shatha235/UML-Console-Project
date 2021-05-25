@@ -43,12 +43,12 @@ namespace UML_Console_Project.ProjectFiles
 
         public override string ToString()
         {
-            return "ID: "+this.ID+"Description: "+this.Description+"Price: "+this.Price+"Quantity: "+this.Quantity;
+            return " ID: "+this.ID+" Description: "+this.Description+" Price: "+this.Price+" Quantity: "+this.Quantity;
         }
 
         public void ViewItem()
         {
-            Console.WriteLine("ID: " + this.ID + " Description: " + this.Description + " Price: " + this.Price + " Quantity:" + this.Quantity);
+            Console.WriteLine(" ID:  " + this.ID + "  Description:  " + this.Description + "  Price:  " + this.Price + "  Quantity: " + this.Quantity);
         }
 
         public static Item initateItem(string ID,string Description,int Price,int Quantity)
