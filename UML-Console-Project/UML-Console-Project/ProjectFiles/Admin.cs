@@ -194,7 +194,18 @@ namespace UML_Console_Project.ProjectFiles
 
         static public void Deliver()
         {
-            Console.WriteLine("Deliver");
+            Console.WriteLine("Deliver all paid orders");
+
+            for (int i = 0; i < MySystem.OrCounter; i++)
+            {
+                if (MySystem.OrderArr[i].GetStatus() == "paid")
+                {
+                    string status = Order.ChangeStatus(MySystem.OrderArr[i].GetStatus(), "delivered");
+                    MySystem.OrderArr[i].SetStatus(status);
+                }
+                
+            }
+            MySystem.Storefiles();
 
         }
 

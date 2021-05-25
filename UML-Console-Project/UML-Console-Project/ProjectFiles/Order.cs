@@ -61,7 +61,7 @@ namespace UML_Console_Project.ProjectFiles
         {
             return Status;
         }
-        public void SetStatus(string Status)
+        public void SetStatus(string Status) 
         {
            this.Status=Status;
         }
@@ -77,7 +77,7 @@ namespace UML_Console_Project.ProjectFiles
            Console.WriteLine("ID : " + ID + "Customer name :" + CustomerName + "Provider name: " + ProviderName + "Status : " +Status +"List of ordered item :" + ListfoItem + "Total Cost :" +TotalCost);
         }
 
-        public string ChangeStatus(string sTO , string sFr)
+        static public string ChangeStatus(string sTO , string sFr)
         { 
            
             sTO = sFr;
