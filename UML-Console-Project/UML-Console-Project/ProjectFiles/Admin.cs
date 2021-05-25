@@ -101,7 +101,6 @@ namespace UML_Console_Project.ProjectFiles
             string ID, description, providerName;
             int qty, price;
           
-            {
                 Console.WriteLine("AddItem");
                 Console.WriteLine("Enter item's information");
                 Console.WriteLine("ID = ");
@@ -114,34 +113,45 @@ namespace UML_Console_Project.ProjectFiles
                 qty = Convert.ToInt32(Console.ReadLine());
                 Console.WriteLine("Enter provider's name : ");
                 providerName = Console.ReadLine();
-                for (int i = 0; i <MySystem.PCounter; i++)
+
+            for (int i = 0; i < MySystem.PCounter; i++)
+            { 
+                if (providerName == MySystem.ProviderArr[i].GetName())
                 {
-                    if (providerName == MySystem.ProviderArr[i].GetName())
-                    {
-                      
-                        MySystem.ProviderArr[i].AddItem(ID, description, price, qty);
-                        Console.WriteLine("Item was added successfully");
-                        break;
-                    }
+
+                    MySystem.ProviderArr[i].AddItem(ID, description, price, qty);
+                    Console.WriteLine("Item was added successfully.");
+
+                    break;
                 }
+             }
 
-            }
-             
-
-            
-      
+            MySystem.Storefiles();
         }
     
 
         static public void AddOffer()
         {
+            int i = 0;
+            Item[] proItems = new Item[100];
             Console.WriteLine("AddOffer");
             Console.WriteLine("Enter provider's name : ");
             string providerName = Console.ReadLine();
-            for(int i=0;i<MySystem.PCounter;i++)
-            {
+            proItems= MySystem.GetItemsByProvider(ref i,providerName);
+            for (int j = 0; j < i; j++)
+                proItems[j].ViewItem();
+            Console.WriteLine("Enter new offer's information");
+            Console.WriteLine("Offer's ID : ");
+            string ID = Console.ReadLine();
+            Console.WriteLine("Item ID : ");
+            string itemID = Console.ReadLine();
+            Console.WriteLine("Quantity of items in the offer : ");
+            int Quantity = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Offer price : ");
+            int offerPrice = Convert.ToInt32(Console.ReadLine());
+            Offer.AddOffer(ID ,providerName, itemID, Quantity, offerPrice);
+            Console.WriteLine("Offer was added successfully.");
 
-            }
         }
 
         static public void ViewAllProviders()
