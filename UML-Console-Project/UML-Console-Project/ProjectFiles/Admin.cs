@@ -166,13 +166,20 @@ namespace UML_Console_Project.ProjectFiles
         static public void ViewAllCustomers()
         {
             Console.WriteLine("ViewAllCustomers");
-
+            for(int i=0;i<MySystem.CCounter;i++)
+            {
+                MySystem.CustomerArr[i].View();
+            }
         }
 
         static public void ViewAllOrders()
         {
             Console.WriteLine("ViewAllOrders");
 
+            for(int i=0;i<MySystem.OrCounter;i++)
+            {
+               MySystem.OrderArr[i].ViewAllOrders();
+            }
         }
 
         static public void ViewAllOffers()
