@@ -185,6 +185,10 @@ namespace UML_Console_Project.ProjectFiles
         static public void ViewAllOffers()
         {
             Console.WriteLine("ViewAllOffers");
+            for(int i=0;i<MySystem.OfCounter;i++)
+            {
+                MySystem.OfferArr[i].View();
+            }
 
         }
 
