@@ -48,7 +48,7 @@ namespace UML_Console_Project
 
             return o;
         }
-        static public Item ChangeAndReturnItem(string Pname,string ID,int Quantity)
+        /*static public Item ChangeAndReturnItem(string Pname,string ID,int Quantity)
         {
             int i = 0;
             for (; i < PCounter; i++)
@@ -59,11 +59,10 @@ namespace UML_Console_Project
             for(int s=0;s<ProviderArr[i].ItemCounter;s++)
             if(ProviderArr[i].GetItem(s).GetID()==ID)
                 {
-                    Order.AddOrder(ProviderArr[i].GetItem(s));
-
-
+                    Order.AddItem(ProviderArr[i].GetItem(s));
                 }
-        }
+
+        }*/
         static public Item[] GetItemsByProvider(ref int j, string ProviderName) //j returns number of items so we can use it in the loop in admin/customer
         {
             
@@ -119,7 +118,7 @@ namespace UML_Console_Project
             Pfile = new FileStream("ProviderFile.txt", FileMode.Create, FileAccess.Write);
             Cfile = new FileStream("CustomerFile.txt", FileMode.Create, FileAccess.Write);
             Orfile = new FileStream("OrderFile.txt", FileMode.Create, FileAccess.Write);
-            Offile = new FileStream("Order.txt", FileMode.Create, FileAccess.Write);
+            Offile = new FileStream("OfferFile.txt", FileMode.Create, FileAccess.Write);
 
 
             //Provider

@@ -16,25 +16,25 @@ namespace UML_Console_Project.ProjectFiles
          private string CustomerName;
          private string ProviderName;
          private string Status;
-         private Order [] ListofoItem;
+         private Item [] ListfoItem;
          private double TotalCost;
-         public Order (string ID="",string CustomerName="",string ProviderName="",string Status="",Item [] ListofOItem=null,double TotalCost=0)
+         public Order (string ID="",string CustomerName="",string ProviderName="",string Status="",Item [] ListfoItem = null,double TotalCost=0)
            {
             this.ID = ID;
             this.CustomerName=CustomerName;
             this.ProviderName = ProviderName;
             this.Status=Status;
-            this.ListofoItem=ListofoItem;
+            this.ListfoItem = ListfoItem;
             this.TotalCost=TotalCost;
             
            }
-        public void Setall(string ID="",string CustomerName="",string ProviderName="",string Status="",Item [] ListofOItem=null,double TotalCost=0)
+        public void Setall(string ID="",string CustomerName="",string ProviderName="",string Status="",Item [] ListfoItem = null,double TotalCost=0)
         {
             this.ID = ID;
             this.CustomerName=CustomerName;
             this.ProviderName = ProviderName;
             this.Status=Status;
-            this.ListofoItem=ListofoItem;
+            this.ListfoItem = ListfoItem;
             this.TotalCost=TotalCost;
         }
         public string GetID()
@@ -65,7 +65,7 @@ namespace UML_Console_Project.ProjectFiles
         {
            this.Status=Status;
         }
-        public void AddOrder(string ID , string CustomerName,string ProviderName ,string Status,Order [] ListofoItem,double TotalCost)
+        public void AddOrder(string ID , string CustomerName,string ProviderName ,string Status,Item [] ListofoItem,double TotalCost)
         {
             Order o = new Order(ID ,CustomerName,ProviderName,Status,ListofoItem,TotalCost);
             MySystem.OrderArr[MySystem.OrCounter++] = o;
@@ -74,7 +74,7 @@ namespace UML_Console_Project.ProjectFiles
         public void ViewAllOrders()
         { 
         
-           Console.WriteLine("ID : " + ID + "Customer name :" + CustomerName + "Provider name: " + ProviderName + "Status : " +Status +"List of ordered item :" + ListofOItem + "Total Cost :" +TotalCost);
+           Console.WriteLine("ID : " + ID + "Customer name :" + CustomerName + "Provider name: " + ProviderName + "Status : " +Status +"List of ordered item :" + ListfoItem + "Total Cost :" +TotalCost);
         }
 
         public string ChangeStatus(string sTO , string sFr)
@@ -83,9 +83,9 @@ namespace UML_Console_Project.ProjectFiles
             sTO = sFr;
            return sTO;
         }
-        public Order GetItem(int t)
+        public Item GetItem(int t)
         {
-            return (ListofoItem[t]);
+            return (ListfoItem[t]);
         }
       
         static public void InaitialData()

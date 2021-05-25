@@ -321,19 +321,19 @@ namespace UML_Console_Project.ProjectFiles
             string ID = Console.ReadLine();
             Console.WriteLine("Enter the Review value please: ");
             double review = Convert.ToDouble(Console.ReadLine());
-            int i =0;
-            for (; i<MySystem.OrCounter;i++)
+            int j =0;
+            for (; j<MySystem.OrCounter;j++)
             { 
-                if (MySystem.OrderArr[i].GetID()==ID)
+                if (MySystem.OrderArr[j].GetID()==ID)
                 { 
-                      string name=MySystem.OrderArr[i].GetProviderName();
+                      string name=MySystem.OrderArr[j].GetProviderName();
                 }
 
             }
             int t=0;
             for (; t<MySystem.PCounter;t++)
             { 
-                if (MySystem.ProviderArr[t].GetName()==name)
+                if (MySystem.ProviderArr[t].GetName()==Name)
                     MySystem.ProviderArr[t].SetNewReview(review);
             }
             MySystem.Storefiles();
