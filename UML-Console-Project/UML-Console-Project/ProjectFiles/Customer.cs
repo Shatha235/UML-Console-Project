@@ -151,6 +151,15 @@ namespace UML_Console_Project.ProjectFiles
               
              }
         }
+        public double CachCrediteUpdate(double totalCost)
+        { 
+            return this.CashCredit-totalCost;
+        }
+        public int IncomeUpdate(int income ,double totalCost)
+        { 
+            income= income + (int) totalCost; 
+            return income;
+        }
         
        
      
@@ -254,19 +263,80 @@ namespace UML_Console_Project.ProjectFiles
         public void VeiwMyOrders()
         {
             //testing
-            Console.WriteLine("VeiwMyOrders");
+            //Console.WriteLine("VeiwMyOrders");
+            Order [] order =new Order [100];
+            int j=0;
+            string Cname = this.GetUsername();
+            order = MySystem.GetOrdersByCustomer(ref j,Cname);
+            for (int i=0 ; i<j;i++)
+                order[i].ViewAllOrders();
         }
 
         public void PayForOrder()
         {
             //testing
-            Console.WriteLine("PayForOrder");
+            //Console.WriteLine("PayForOrder");
+            
+            int i =0;
+            for (;i<MySystem.OrCounter;i++)
+            { 
+                if (MySystem.OrderArr[i].GetStatus()=="not paid")
+                    MySystem.OrderArr[i].ViewAllOrders();
+            }
+            Console.WriteLine("Enter Order ID please: ");
+            string ID = Console.ReadLine();
+            int c=0;
+            for (; c<MySystem.OfCounter; c++)
+            { 
+               if(MySystem.OrderArr[c].GetID()==ID)
+                { 
+                    string st= MySystem.OrderArr[c].ChangeStatus("not paid","paid");
+                    MySystem.OrderArr[c].SetStatus(st);
+                }
+
+            }
+            double TotalCost = MySystem.OrderArr[c].GetTotalCost();
+            CachCrediteUpdate(TotalCost);
+            string Pname = MySystem.OrderArr[c].GetProviderName();
+            for (int r=0 ; r<MySystem.PCounter; r++)
+            { 
+                if (MySystem.ProviderArr[r].GetName()==Pname)
+                   { 
+                      int INC= MySystem.ProviderArr[r].GetIncome() ;
+                      IncomeUpdate(INC,TotalCost);
+                   }
+            }
+            MySystem.Storefiles();
         }
 
         public void PostAReview()
         {
-            //testing
-            Console.WriteLine("PostAReview");
+            int i =0;
+            for (;i<MySystem.OrCounter;i++)
+            { 
+                if (MySystem.OrderArr[i].GetStatus()=="delivered")
+                    MySystem.OrderArr[i].ViewAllOrders();
+            }
+            Console.WriteLine("Enter Order ID please: ");
+            string ID = Console.ReadLine();
+            Console.WriteLine("Enter the Review value please: ");
+            double review = Convert.ToDouble(Console.ReadLine());
+            int i =0;
+            for (; i<MySystem.OrCounter;i++)
+            { 
+                if (MySystem.OrderArr[i].GetID()==ID)
+                { 
+                      string name=MySystem.OrderArr[i].GetProviderName();
+                }
+
+            }
+            int t=0;
+            for (; t<MySystem.PCounter;t++)
+            { 
+                if (MySystem.ProviderArr[t].GetName()==name)
+                    MySystem.ProviderArr[t].SetNewReview(review);
+            }
+            MySystem.Storefiles();
         }
 
         
