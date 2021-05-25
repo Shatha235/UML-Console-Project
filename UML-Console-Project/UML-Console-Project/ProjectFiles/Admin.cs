@@ -104,8 +104,8 @@ namespace UML_Console_Project.ProjectFiles
 
             while (!flag)
             {
-                Console.WriteLine("AddItem\n");
-                Console.WriteLine("Enter item's information\n");
+                Console.WriteLine("AddItem");
+                Console.WriteLine("Enter item's information");
                 Console.WriteLine("ID = ");
                 ID = Console.ReadLine();
                 Console.WriteLine("Description : ");
