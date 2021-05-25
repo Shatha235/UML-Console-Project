@@ -98,44 +98,44 @@ namespace UML_Console_Project.ProjectFiles
         static public void AddItem()
         {
 
-            string ID, description, providerName;
-            int qty, price;
+            
             bool flag = false;
-
-            while (!flag)
+            while(!flag)
+            { 
+            Console.WriteLine("AddItem");
+            Console.WriteLine("Enter item's information");
+            Console.WriteLine("ID = "); 
+            string ID = Console.ReadLine();
+            Console.WriteLine("Description : ");
+            string description = Console.ReadLine();
+            Console.WriteLine("Price : ");
+            int price = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Quantity : ");
+            int qty = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Enter provider's name : ");
+            string providerName = Console.ReadLine();
+            for (int i = 0; i <MySystem.PCounter; i++)
             {
-                Console.WriteLine("AddItem\n");
-                Console.WriteLine("Enter item's information\n");
-                Console.WriteLine("ID = ");
-                ID = Console.ReadLine();
-                Console.WriteLine("Description : ");
-                description = Console.ReadLine();
-                Console.WriteLine("Price : ");
-                price = Convert.ToInt32(Console.ReadLine());
-                Console.WriteLine("Quantity : ");
-                qty = Convert.ToInt32(Console.ReadLine());
-                Console.WriteLine("Enter provider's name : ");
-                providerName = Console.ReadLine();
-                for (int i = 0; i <MySystem.PCounter; i++)
+                if (providerName == MySystem.ProviderArr[i].GetName())
                 {
-                    if (providerName == MySystem.ProviderArr[i].GetName())
-                    {
-                        flag = true;
-                        MySystem.ProviderArr[i].AddItem(ID, description, price, qty);
-                        Console.WriteLine("Item was added successfully");
-                        break;
-                    }
+                    flag = true;
+                    MySystem.ProviderArr[i].AddItem(ID, description, price, qty);
+                    Console.WriteLine("Item was added successfully");
+                     break;
+                    
                 }
+            }
 
-
-                if (!flag)
+            }
+              if (!flag)
                 {
                     Console.Clear();
                     Sh.Msg("Provider entered does not exist");
-                }
+               }
+                
 
-            }
-        
+            
+      
         }
     
 

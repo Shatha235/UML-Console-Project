@@ -45,6 +45,11 @@ namespace UML_Console_Project.ProjectFiles
             this.Income = Income;
 
         }
+        public void setIncome(int income)
+        { 
+            this.Income=income;
+
+        }
 
         //prints
 
@@ -81,7 +86,11 @@ namespace UML_Console_Project.ProjectFiles
         {
             return (ListOfItems[i]);
         }
-
+        public int GetIncome()
+        { 
+            return this.Income;
+        }
+        
 
         //functions
         

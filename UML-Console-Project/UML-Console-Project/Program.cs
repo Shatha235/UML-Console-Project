@@ -84,6 +84,19 @@ namespace UML_Console_Project
             return I;
         }
 
+        static public Order[] GetOrdersByCustomer(ref int j, string CustomerName) //j returns number of orders so we can use it in the loop in admin/customer
+        {
+            j = 0;
+            Order[] d = new Order[100];
+            for (int i = 0; i < OrCounter; i++)
+            {
+                if (OrderArr[i].GetCustomerName() == CustomerName)
+                    d[j++] = OrderArr[i];
+            }
+
+            return d;
+        }
+
         static public void CancelOffer(string ID)
         { int i = 0;
             for(;i<OfCounter;i++)
