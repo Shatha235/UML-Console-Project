@@ -185,6 +185,14 @@ namespace UML_Console_Project.ProjectFiles
         {
             Console.WriteLine("CancelOffer");
 
+            string pname="hot and cold";
+              int k=0;
+            Item[] I = MySystem.GetItemsByProvider(ref k, pname);
+            for (int i = 0; i < k; i++)
+            {
+                I[i].ViewItem();
+            }
+
         }
 
     }
