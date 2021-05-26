@@ -62,11 +62,12 @@ namespace UML_Console_Project.ProjectFiles
             return("ID: " + ID + "    Provider name: " + ProviderName + "    ItemID: " + ItemID + "  Quantity: " + Quantity + "  Price: " + Price);
         }
 
-        public void AddOffer(string ID , string ProviderName , string ItemID , int Quantity, int Price)
+        static public void AddOffer(string ID , string ProviderName , string ItemID , int Quantity, int Price)
         {
             Offer f = new Offer(ID,ProviderName,ItemID,Quantity,Price);
             MySystem.OfferArr[MySystem.OfCounter++] = f;
             MySystem.Storefiles();
+           
         }
 
         static public void InaitialData()

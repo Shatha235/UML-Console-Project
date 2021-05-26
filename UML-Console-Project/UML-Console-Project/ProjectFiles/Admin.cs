@@ -100,10 +100,7 @@ namespace UML_Console_Project.ProjectFiles
 
             string ID, description, providerName;
             int qty, price;
-            bool flag = false;
-
-            while (!flag)
-            {
+          
                 Console.WriteLine("AddItem");
                 Console.WriteLine("Enter item's information");
                 Console.WriteLine("ID = ");
@@ -116,84 +113,111 @@ namespace UML_Console_Project.ProjectFiles
                 qty = Convert.ToInt32(Console.ReadLine());
                 Console.WriteLine("Enter provider's name : ");
                 providerName = Console.ReadLine();
-                for (int i = 0; i <MySystem.PCounter; i++)
+
+            for (int i = 0; i < MySystem.PCounter; i++)
+            { 
+                if (providerName == MySystem.ProviderArr[i].GetName())
                 {
-                    if (providerName == MySystem.ProviderArr[i].GetName())
-                    {
-                        flag = true;
-                        MySystem.ProviderArr[i].AddItem(ID, description, price, qty);
-                        Console.WriteLine("Item was added successfully");
-                        break;
-                    }
+
+                    MySystem.ProviderArr[i].AddItem(ID, description, price, qty);
+                    Console.WriteLine("Item was added successfully.");
+
+                    break;
                 }
+             }
 
-            }
-              if (!flag)
-                {
-                    Console.Clear();
-                    Sh.Msg("Provider entered does not exist");
-               }
-                
-
-            
-      
+            MySystem.Storefiles();
         }
     
 
         static public void AddOffer()
         {
+            int i = 0;
+            Item[] proItems = new Item[100];
             Console.WriteLine("AddOffer");
             Console.WriteLine("Enter provider's name : ");
             string providerName = Console.ReadLine();
-            for(int i=0;i<MySystem.PCounter;i++)
-            {
+            proItems= MySystem.GetItemsByProvider(ref i,providerName);
+            for (int j = 0; j < i; j++)
+                proItems[j].ViewItem();
+            Console.WriteLine("Enter new offer's information");
+            Console.WriteLine("Offer's ID : ");
+            string ID = Console.ReadLine();
+            Console.WriteLine("Item ID : ");
+            string itemID = Console.ReadLine();
+            Console.WriteLine("Quantity of items in the offer : ");
+            int Quantity = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Offer price : ");
+            int offerPrice = Convert.ToInt32(Console.ReadLine());
+            Offer.AddOffer(ID ,providerName, itemID, Quantity, offerPrice);
+            Console.WriteLine("Offer was added successfully.");
 
-            }
         }
-
+        
         static public void ViewAllProviders()
-        {
+        { 
             Console.WriteLine("ViewAllProviders");
-
+            for (int i = 0; i < MySystem.PCounter; i++)
+            {
+                 MySystem.ProviderArr[i].View();
+            }
         }
 
         static public void ViewAllCustomers()
         {
             Console.WriteLine("ViewAllCustomers");
-
+            for(int i=0;i<MySystem.CCounter;i++)
+            {
+                MySystem.CustomerArr[i].View();
+            }
         }
 
         static public void ViewAllOrders()
         {
             Console.WriteLine("ViewAllOrders");
 
+            for(int i=0;i<MySystem.OrCounter;i++)
+            {
+               MySystem.OrderArr[i].ViewAllOrders();
+            }
         }
 
         static public void ViewAllOffers()
         {
             Console.WriteLine("ViewAllOffers");
+            for(int i=0;i<MySystem.OfCounter;i++)
+            {
+                MySystem.OfferArr[i].View();
+            }
 
         }
 
         static public void Deliver()
         {
-            Console.WriteLine("Deliver");
+            Console.WriteLine("Deliver all paid orders");
+
+            for (int i = 0; i < MySystem.OrCounter; i++)
+            {
+                if (MySystem.OrderArr[i].GetStatus() == "paid")
+                {
+                    MySystem.OrderArr[i].SetStatus("delivered");
+                }
+                
+            }
+            MySystem.Storefiles();
 
         }
 
         static public void CancelOffer()
         {
             Console.WriteLine("CancelOffer");
-
-            string pname="hot and cold";
-              int k=0;
-            Item[] I = MySystem.GetItemsByProvider(ref k, pname);
-            for (int i = 0; i < k; i++)
-            {
-                I[i].ViewItem();
-            }
-
+            ViewAllOffers();
+            Console.WriteLine("Enter offer's ID : ");
+            string ID = Console.ReadLine();
+            MySystem.CancelOffer(ID);
+            MySystem.Storefiles();
         }
-
+        
     }
+       
 }
