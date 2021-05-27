@@ -218,6 +218,11 @@ namespace UML_Console_Project.ProjectFiles
             do
             {
                 Console.Clear();
+               for (int i=0;i<j;i++)
+            {
+                I[i].ViewItem();
+            }
+
                 Console.WriteLine("[1] Add an item to the order");
                 Console.WriteLine("[2] Add an offer to the order");
                 Console.WriteLine("[3] Finished Adding to the order");
@@ -242,8 +247,7 @@ namespace UML_Console_Project.ProjectFiles
                             MySystem.ChangeItemQuantity(Pname, ID, Quantity);
                             CostCounter += Quantity * I[i].GetPrice();
                             Ord.AddItem(I[i]);
-                            break;
-                            
+                            break;                        
                         }
 
                     }
@@ -277,18 +281,13 @@ namespace UML_Console_Project.ProjectFiles
 
             } while (f==true);
 
-            Console.WriteLine("Enter the ID of the item please: ");
-            string IdItem = Console.ReadLine();
-            Console.WriteLine("Enter the quantity that you want:  ");
-            int quantityItem =Convert.ToInt32( Console.ReadLine());
+            Console.WriteLine("Enter A Unique ID for the Order please: ");
+            string OrderID = Console.ReadLine();
+            
+           Ord.SetOrderInfo(OrderID,this.Name,Pname,"not paid",CostCounter);
+            MySystem.OrderArr[MySystem.OrCounter++]=Ord;
 
-            Console.WriteLine("Enter the quantity that you want:  ");
-            int OfferID = Convert.ToInt32(Console.ReadLine());
-
-            // he can enter the IDs of the offers he wants to buy
-            //calculateTotalCost(NameP,IdItem,quantityItem);
-
-
+            MySystem.Storefiles();
         }
 
 

@@ -25,8 +25,9 @@ namespace UML_Console_Project.ProjectFiles
             this.Quantity=Quantity;
         }
 
-        public Item(Item item)
+        public Item( Item item)
         {
+
             this.ID = item.ID;
             this.Description = item.Description;
             this.Price = item.Price;

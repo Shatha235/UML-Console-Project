@@ -57,6 +57,16 @@ namespace UML_Console_Project.ProjectFiles
                 this.ListOfItems[i] = ListOfItems[i];
             this.TotalCost=TotalCost;
         }
+
+        public void SetOrderInfo(string ID,string CustomerName,string ProviderName,string Status,double TotalCost)
+        {
+            this.ID = ID;
+            this.CustomerName=CustomerName;
+            this.ProviderName = ProviderName;
+            this.Status=Status;
+           
+            this.TotalCost=TotalCost;
+        }
         public string GetID()
         {
             return ID;
