@@ -16,25 +16,45 @@ namespace UML_Console_Project.ProjectFiles
          private string CustomerName;
          private string ProviderName;
          private string Status;
-         private Item [] ListfoItem;
-         private double TotalCost;
-         public Order (string ID="",string CustomerName="",string ProviderName="",string Status="",Item [] ListfoItem = null,double TotalCost=0)
+        private Item [] ListOfItems=new Item[100];
+        public int ItemCounter = 0;
+        private double TotalCost;
+         public Order (string ID="",string CustomerName="",string ProviderName="",string Status="",Item [] ListOfItems = null,double TotalCost=0)
            {
             this.ID = ID;
             this.CustomerName=CustomerName;
             this.ProviderName = ProviderName;
             this.Status=Status;
-            this.ListfoItem = ListfoItem;
+            this.ListOfItems = new Item[100];
+            for (int i =0; i<ItemCounter;i++)
+            this.ListOfItems[i] = ListOfItems[i];
+
             this.TotalCost=TotalCost;
             
            }
-        public void Setall(string ID="",string CustomerName="",string ProviderName="",string Status="",Item [] ListfoItem = null,double TotalCost=0)
+
+
+        public Order(Order O)
+        {
+            this.ID = O.ID;
+            this.CustomerName = O.CustomerName;
+            this.ProviderName = O.ProviderName;
+            this.Status = O.Status;
+            this.ListOfItems = new Item[100];
+            for (int i = 0; i < ItemCounter; i++)
+                this.ListOfItems[i] = O.ListOfItems[i];
+            this.TotalCost = O.TotalCost;
+
+        }
+        public void Setall(string ID="",string CustomerName="",string ProviderName="",string Status="",Item [] ListOfItems = null,double TotalCost=0)
         {
             this.ID = ID;
             this.CustomerName=CustomerName;
             this.ProviderName = ProviderName;
             this.Status=Status;
-            this.ListfoItem = ListfoItem;
+            this.ListOfItems = new Item[100];
+            for (int i = 0; i < ItemCounter; i++)
+                this.ListOfItems[i] = ListOfItems[i];
             this.TotalCost=TotalCost;
         }
         public string GetID()
@@ -74,7 +94,7 @@ namespace UML_Console_Project.ProjectFiles
         public void ViewAllOrders()
         { 
         
-           Console.WriteLine("ID : " + ID + "Customer name :" + CustomerName + "Provider name: " + ProviderName + "Status : " +Status +"List of ordered item :" + ListfoItem + "Total Cost :" +TotalCost);
+           Console.WriteLine("ID : " + ID + "Customer name :" + CustomerName + "Provider name: " + ProviderName + "Status : " +Status +"List of ordered item :" + ListOfItems + "Total Cost :" +TotalCost);
         }
 
        /* static public string ChangeStatus( string sTO , string sFr)
@@ -85,7 +105,7 @@ namespace UML_Console_Project.ProjectFiles
         }*/
         public Item GetItem(int t)
         {
-            return (ListfoItem[t]);
+            return (ListOfItems[t]);
         }
       
         static public void InaitialData()
@@ -94,9 +114,9 @@ namespace UML_Console_Project.ProjectFiles
             MySystem.Storefiles();
         }
 
-        static public void AddItem(Item item)
+         public void AddItem(Item item)
         {
-
+            ListOfItems[ItemCounter++] = new Item(item);
         }
         
         

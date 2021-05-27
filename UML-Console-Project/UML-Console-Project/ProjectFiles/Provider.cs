@@ -18,7 +18,7 @@ namespace UML_Console_Project.ProjectFiles
         private string Location;
         private double Review;
         private double DeliveryRate;
-        private Item[] ListOfItems;
+        private Item[] ListOfItems=new Item[100];
         private int Income;
         public int ItemCounter=0;
 
@@ -29,8 +29,24 @@ namespace UML_Console_Project.ProjectFiles
             this.Location = Location;
             this.Review = Review;
             this.DeliveryRate = DeliveryRate;
-            this.ListOfItems = ListOfItems;
+            this.ListOfItems = new Item[100];
+            for (int i = 0; i < ItemCounter; i++)
+                this.ListOfItems[i] = ListOfItems[i];
             this.Income = Income;
+
+        }
+
+        public Provider(Provider P)
+        {
+            this.Name = P.Name;
+            this.Category = P.Category;
+            this.Location = P.Location;
+            this.Review = P.Review;
+            this.DeliveryRate = P.DeliveryRate;
+            this.ListOfItems = new Item[100];
+            for (int i = 0; i < ItemCounter; i++)
+                this.ListOfItems[i] = P.ListOfItems[i];
+            this.Income = P.Income;
 
         }
 
@@ -41,7 +57,9 @@ namespace UML_Console_Project.ProjectFiles
             this.Location = Location;
             this.Review = Review;
             this.DeliveryRate = DeliveryRate;
-            this.ListOfItems = ListOfItems;
+            this.ListOfItems = new Item[100];
+            for (int i = 0; i < ItemCounter; i++)
+                this.ListOfItems[i] = ListOfItems[i];
             this.Income = Income;
 
         }
@@ -50,6 +68,7 @@ namespace UML_Console_Project.ProjectFiles
             this.Income=income;
 
         }
+       
 
         //prints
 
@@ -93,6 +112,27 @@ namespace UML_Console_Project.ProjectFiles
         public Item GetItem(int i)
         {
             return (ListOfItems[i]);
+        }
+        public double GetDeliveryRate()
+        {
+            return DeliveryRate;
+        }
+
+        public int getItemIndex(string id)
+        {
+            int index=0;
+            for (int i = 0; i < ItemCounter; i++)
+                if (ListOfItems[i].GetID() == id)
+                {
+                    index = i;
+                    break;
+                }
+            
+            return index;
+        }
+        public void SetItemQuantity(int index,int Q)
+        {
+            ListOfItems[index].SetQuantity(Q);
         }
         public int GetIncome()
         { 

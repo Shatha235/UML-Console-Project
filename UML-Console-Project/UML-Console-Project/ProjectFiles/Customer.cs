@@ -140,7 +140,7 @@ namespace UML_Console_Project.ProjectFiles
         }
 
         //1 fixed it's name was : Read_loc_Cat
-        public void ViewProviders(string Location,string Category)
+        public void ViewAvailableProviders(string Location,string Category)
         { 
             
             for (int i=0; i <MySystem.PCounter;i++)
@@ -195,20 +195,26 @@ namespace UML_Console_Project.ProjectFiles
             string Location = Console.ReadLine();
             Console.WriteLine("Enter  the category of the provider please: ");
             string Category = Console.ReadLine();
-            ViewProviders(Location,Category);
+            ViewAvailableProviders(Location,Category);
             Console.WriteLine("Enter the provider name please: ");
-            string NameP = Console.ReadLine();
+            string Pname = Console.ReadLine();
             int j=0;
-            Item []I =MySystem.GetItemsByProvider(ref j,NameP);
+            Item []I =MySystem.GetItemsByProvider(ref j, Pname);
             for (int i=0;i<j;i++)
             {
                 I[i].ViewItem();
             }
-            //GetOffersByProvider 
 
+            int k = 0;
+            Offer []O = MySystem.GetOffersByProvider(ref k, Pname);
+            for (int i = 0; i < k; i++)
+            {
+                O[i].View();
+            }
+            Order Ord = new Order();
+            double CostCounter = MySystem.GetProviderDeliveryRate(Pname);
             int choice;
             bool f = true;
-
             do
             {
                 Console.Clear();
@@ -217,6 +223,7 @@ namespace UML_Console_Project.ProjectFiles
                 Console.WriteLine("[3] Finished Adding to the order");
                 Console.Write("Enter your choice: ");
                 choice = Convert.ToInt32(Console.ReadLine());
+
 
                 if (choice == 1)
                 {
@@ -227,8 +234,17 @@ namespace UML_Console_Project.ProjectFiles
                     int Quantity = Convert.ToInt32(Console.ReadLine());
                     //function in items class , takes ID and Quantity, to decrease quantity and add item to list of items in order object
                     //cost counter
-                    for (int l=0;l<j;l++)
+                    
+                    for (int i=0;i<j;i++)
                     {
+                        if (I[i].GetID() == ID)
+                        {
+                            MySystem.ChangeItemQuantity(Pname, ID, Quantity);
+                            CostCounter += Quantity * I[i].GetPrice();
+                            Ord.AddItem(I[i]);
+                            break;
+                            
+                        }
 
                     }
                 }
@@ -236,13 +252,29 @@ namespace UML_Console_Project.ProjectFiles
                 else if (choice == 2)
                 {
 
+                    Console.WriteLine("\n\nPlaase Enter the ID Offer you want to add");
+                    Console.Write("ID: ");
+                    string ID = Console.ReadLine();
+                    
+                    
+                
+                    for (int i = 0; i < k; i++)
+                    {
+                        if (O[i].GetID() == ID)
+                        {
+                            MySystem.ChangeItemQuantity(Pname, ID, O[i].GetQuantity());
+                            CostCounter +=  O[i].GetCost();
+                            Ord.AddItem(I[i]);
+                            break;
+
+                        }
+
+                    }
 
                 }
                 else if (choice == 3)
                     f = false;
-               
 
-                
             } while (f==true);
 
             Console.WriteLine("Enter the ID of the item please: ");
