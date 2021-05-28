@@ -161,7 +161,7 @@ namespace UML_Console_Project.ProjectFiles
             { 
                 
                if (MySystem.ProviderArr[i].GetLocation() == Location && MySystem.ProviderArr[i].GetCategory() == Category)
-                    Console.WriteLine(MySystem.ProviderArr[i].GetName());
+                    Console.WriteLine(MySystem.ProviderArr[i]);
               
              }
         }
@@ -207,7 +207,7 @@ namespace UML_Console_Project.ProjectFiles
 
             Console.WriteLine("Enter your current location (Area1 or Area2 or Area3 ):");
             string Location = Console.ReadLine();
-            Console.WriteLine("Enter  the category of the provider please: ");
+            Console.WriteLine("Enter  the category of the provider please (Market or Food) : ");
             string Category = Console.ReadLine();
             ViewAvailableProviders(Location,Category);
             Console.WriteLine("Enter the provider name please: ");
