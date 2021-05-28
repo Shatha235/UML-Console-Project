@@ -106,30 +106,44 @@ namespace UML_Console_Project.ProjectFiles
             {
                 Console.Clear();
                 PlaceNewOrder();
+                Console.Clear();
+                MySystem.LoginAsCustomer();
             }
 
             else if (choice == 2)
             {
                 Console.Clear();
                 VeiwMyOrders();
+                Console.Clear();
+                MySystem.LoginAsCustomer();
+
             }
 
             else if (choice == 3)
             {
                 Console.Clear();
                 PayForOrder();
+                Console.Clear();
+                MySystem.LoginAsCustomer();
+
             }
 
             else if (choice == 4)
             {
                 Console.Clear();
                 PostAReview();
+                Console.Clear();
+                MySystem.LoginAsCustomer();
+
             }
 
             else if (choice == 5)
             {
                 Console.Clear();
                 MySystem.Logout();
+                Console.Clear();
+                MySystem.LoginAsCustomer();
+
             }
 
             else 
