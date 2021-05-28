@@ -43,7 +43,7 @@ namespace UML_Console_Project
             for (int i = 0; i < OfCounter; i++)
             {
                 if (OfferArr[i].GetProviderName() == ProviderName)
-                    o[j++] = OfferArr[i];
+                    o[j++] = new Offer(OfferArr[i]);
             }
 
             return o;
@@ -75,7 +75,8 @@ namespace UML_Console_Project
             }
             for(int k=0;k<ProviderArr[i].ItemCounter;k++)
             {
-                I[k]=ProviderArr[i].GetItem(k);
+                
+                I[k]= new Item(ProviderArr[i].GetItem(k));
             }
 
 
@@ -90,7 +91,7 @@ namespace UML_Console_Project
             for (int i = 0; i < OrCounter; i++)
             {
                 if (OrderArr[i].GetCustomerName() == CustomerName)
-                    d[j++] = OrderArr[i];
+                    d[j++] =new Order( OrderArr[i]);
             }
 
             return d;
@@ -107,6 +108,29 @@ namespace UML_Console_Project
 
             OfCounter--;
                 
+        }
+
+        static public void ChangeItemQuantity(string Pname,string ID,int Q)
+        {
+
+            int i = 0;
+            for (; i < PCounter; i++)
+            {
+                if (ProviderArr[i].GetName() == Pname)
+                    break;
+            }
+            ProviderArr[i].SetItemQuantity(ProviderArr[i].getItemIndex(ID), Q);
+        }
+
+        public static double GetProviderDeliveryRate(string Pname)
+        {
+            int i = 0;
+            for (; i < PCounter; i++)
+            {
+                if (ProviderArr[i].GetName() == Pname)
+                    break;
+            }
+            return ProviderArr[i].GetDeliveryRate();
         }
 
         static public void Storefiles()

@@ -11,19 +11,29 @@ namespace UML_Console_Project.ProjectFiles
 {
     [Serializable]
     class Item
-    {    
-        public string ID;
-        public string Description;
-        public int Price;
-        public int Quantity;
+    {
+        private string ID;
+        private string Description;
+        private double Price;
+        private int Quantity;
 
-        public  Item(string ID ="", string Description ="",int price=0, int Quantity=0)
+        public  Item(string ID ="", string Description ="", double Price =0, int Quantity=0)
         { 
             this.ID=ID;
             this.Description=Description;
-            this.Price=price;
+            this.Price=Price;
             this.Quantity=Quantity;
         }
+
+        public Item( Item item)
+        {
+
+            this.ID = item.ID;
+            this.Description = item.Description;
+            this.Price = item.Price;
+            this.Quantity = item.Quantity;
+        }
+
         public int GetQuantity()
         {
             return Quantity;
@@ -32,7 +42,12 @@ namespace UML_Console_Project.ProjectFiles
         {
             this.Quantity = Quantity;
         }
-
+        
+        public string GetDescription()
+        {
+            return Description;
+        }
+        
         
 
         public string GetID()
@@ -51,7 +66,7 @@ namespace UML_Console_Project.ProjectFiles
             Console.WriteLine(" ID:  " + this.ID + "  Description:  " + this.Description + "  Price:  " + this.Price + "  Quantity: " + this.Quantity);
         }
 
-        public static Item initateItem(string ID,string Description,int Price,int Quantity)
+        public static Item initateItem(string ID,string Description, double Price,int Quantity)
         {
             Item it=new Item();
             it.ID = ID;
@@ -61,6 +76,11 @@ namespace UML_Console_Project.ProjectFiles
             return it;
 
 
+        }
+
+        public double GetPrice()
+        {
+            return Price;
         }
 
         

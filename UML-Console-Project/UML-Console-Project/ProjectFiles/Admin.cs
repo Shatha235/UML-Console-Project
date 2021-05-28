@@ -151,7 +151,7 @@ namespace UML_Console_Project.ProjectFiles
             Console.WriteLine("Quantity of items in the offer : ");
             int Quantity = Convert.ToInt32(Console.ReadLine());
             Console.WriteLine("Offer price : ");
-            int offerPrice = Convert.ToInt32(Console.ReadLine());
+            double offerPrice = Convert.ToDouble(Console.ReadLine());
             Offer.AddOffer(ID ,providerName, itemID, Quantity, offerPrice);
             Console.WriteLine("Offer was added successfully.");
 

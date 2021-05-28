@@ -17,9 +17,9 @@ namespace UML_Console_Project.ProjectFiles
         string ProviderName;
         string ItemID;
         int Quantity;
-        int Price;
+        double Price;
 
-        public Offer(string ID="",string ProviderName="",string ItemID="",int Quantity=0,int Price=0)
+        public Offer(string ID="",string ProviderName="",string ItemID="",int Quantity=0, double Price =0)
         {
             this.ID = ID;
             this.ProviderName = ProviderName;
@@ -28,7 +28,17 @@ namespace UML_Console_Project.ProjectFiles
             this.Price = Price;
         }
 
-        public void Setall(string ID = "", string ProviderName = "", string ItemID = "", int Quantity = 0, int Price = 0)
+        public Offer(Offer O)
+        {
+            this.ID = O.ID;
+            this.ProviderName = O.ProviderName;
+            this.ItemID = O.ItemID;
+            this.Quantity = O.Quantity;
+            this.Price = O.Price;
+        }
+
+
+        public void Setall(string ID = "", string ProviderName = "", string ItemID = "", int Quantity = 0, double Price = 0)
         {
             this.ID = ID;
             this.ProviderName = ProviderName;
@@ -50,6 +60,10 @@ namespace UML_Console_Project.ProjectFiles
         {
             return ID;
         }
+        public int GetQuantity()
+        {
+            return Quantity;
+        }
         public void View()
         {
             //try to also get the name of the item and print it
@@ -62,7 +76,7 @@ namespace UML_Console_Project.ProjectFiles
             return("ID: " + ID + "    Provider name: " + ProviderName + "    ItemID: " + ItemID + "  Quantity: " + Quantity + "  Price: " + Price);
         }
 
-        static public void AddOffer(string ID , string ProviderName , string ItemID , int Quantity, int Price)
+        static public void AddOffer(string ID , string ProviderName , string ItemID , int Quantity, double Price)
         {
             Offer f = new Offer(ID,ProviderName,ItemID,Quantity,Price);
             MySystem.OfferArr[MySystem.OfCounter++] = f;
