@@ -394,6 +394,10 @@ namespace UML_Console_Project
 
         static public void Reset()
         {
+            MySystem.PCounter = 0;
+            MySystem.OrCounter = 0;
+            MySystem.OfCounter = 0;
+            MySystem.CCounter = 0;
             Provider.InaitialData();
             Customer.InaitialData();
             Offer.InaitialData();
@@ -419,13 +423,22 @@ namespace UML_Console_Project
 
             //Warning : only call if you wanna reset All the databases
             //**********************
-            MySystem.Reset();
-            //**********************]
+            //MySystem.Reset();
+            //**********************
             MySystem.Loadfiles();
             MySystem.Login();
-
-
-
+            //for (int i = 0; i < MySystem.PCounter; i++)
+            //   MySystem.ProviderArr[i].View();
+            /*Item[] item = null;
+            item = new Item[1];
+            item[0] = new Item("a", "b", 3, 4);
+            item[0].ViewItem();
+            Provider[] pro = null;
+            pro = new Provider[3];
+            
+            pro[0] = new Provider("ahmad", "market", "area1", 0.5, 0,  item, 3,1);
+            
+            pro[0].View();*/
         }
     }
 }

@@ -198,27 +198,31 @@ namespace UML_Console_Project.ProjectFiles
             ViewAvailableProviders(Location,Category);
             Console.WriteLine("Enter the provider name please: ");
             string Pname = Console.ReadLine();
+            //print error
             int j=0;
-            Item []I =MySystem.GetItemsByProvider(ref j, Pname);
+            Item[] I = MySystem.GetItemsByProvider(ref j, Pname); 
+            
+            Console.WriteLine("______" + j + "________");
             for (int i=0;i<j;i++)
             {
                 I[i].ViewItem();
             }
-
+            //end of main error
             int k = 0;
             Offer []O = MySystem.GetOffersByProvider(ref k, Pname);
             for (int i = 0; i < k; i++)
             {
                 O[i].View();
             }
+            //end of possible error
             Order Ord = new Order();
             double CostCounter = MySystem.GetProviderDeliveryRate(Pname);
             int choice;
             bool f = true;
             do
             {
-                Console.Clear();
-               for (int i=0;i<j;i++)
+                //Console.Clear();
+               for (int i=0;i<j ;i++)
             {
                 I[i].ViewItem();
             }

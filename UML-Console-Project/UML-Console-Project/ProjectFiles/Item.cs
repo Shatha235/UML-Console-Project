@@ -27,7 +27,6 @@ namespace UML_Console_Project.ProjectFiles
 
         public Item( Item item)
         {
-
             this.ID = item.ID;
             this.Description = item.Description;
             this.Price = item.Price;

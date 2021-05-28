@@ -121,6 +121,8 @@ namespace UML_Console_Project.ProjectFiles
         static public void InaitialData()
         {
             MySystem.OrderArr = new Order[100];
+
+
             MySystem.Storefiles();
         }
 

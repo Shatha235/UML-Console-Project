@@ -37,6 +37,8 @@ namespace UML_Console_Project.ProjectFiles
             {
                 Console.Clear();
                 AddItem();
+                MySystem.LoginAsAdmin();
+                
             }
 
             else if (choice == 2)
@@ -49,6 +51,7 @@ namespace UML_Console_Project.ProjectFiles
             {
                 Console.Clear();
                 ViewAllProviders();
+                
             }
 
             else if (choice == 4)
@@ -174,8 +177,6 @@ namespace UML_Console_Project.ProjectFiles
 
         static public void ViewAllOrders()
         {
-            Console.WriteLine("ViewAllOrders");
-
             for(int i=0;i<MySystem.OrCounter;i++)
             {
                MySystem.OrderArr[i].ViewAllOrders();
