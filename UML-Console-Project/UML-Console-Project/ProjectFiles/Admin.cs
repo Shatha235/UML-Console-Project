@@ -37,57 +37,80 @@ namespace UML_Console_Project.ProjectFiles
             {
                 Console.Clear();
                 AddItem();
+                Console.Clear();
                 MySystem.LoginAsAdmin();
-                
             }
 
             else if (choice == 2)
             {
                 Console.Clear();
                 AddOffer();
+                Console.Clear();
+                MySystem.LoginAsAdmin();
+
             }
 
             else if (choice == 3)
             {
                 Console.Clear();
                 ViewAllProviders();
-                
+                Console.Clear();
+                MySystem.LoginAsAdmin();
+
             }
 
             else if (choice == 4)
             {
                 Console.Clear();
                 ViewAllCustomers();
+                Console.Clear();
+                MySystem.LoginAsAdmin();
+
             }
 
             else if (choice == 5)
             {
                 Console.Clear();
                 ViewAllOrders();
+                Console.Clear();
+                MySystem.LoginAsAdmin();
+
             }
 
             else if (choice == 6)
             {
                 Console.Clear();
                 ViewAllOffers();
+                Console.Clear();
+                MySystem.LoginAsAdmin();
+
             }
 
             else if (choice == 7)
             {
                 Console.Clear();
                 Deliver();
+                Console.Clear();
+                MySystem.LoginAsAdmin();
+
             }
 
             else if (choice == 8)
             {
                 Console.Clear();
                 CancelOffer();
+                Console.Clear();
+                MySystem.LoginAsAdmin();
+
             }
 
             else if (choice == 9)
             {
                 Console.Clear();
                 MySystem.Logout();
+                Console.Clear();
+                MySystem.LoginAsAdmin();
+
             }
 
             else
@@ -140,9 +163,12 @@ namespace UML_Console_Project.ProjectFiles
             Console.WriteLine("AddOffer");
             Console.WriteLine("Enter provider's name : ");
             string providerName = Console.ReadLine();
+
             proItems= MySystem.GetItemsByProvider(ref i,providerName);
+
             for (int j = 0; j < i; j++)
                 proItems[j].ViewItem();
+
             Console.WriteLine("Enter new offer's information");
             Console.WriteLine("Offer's ID : ");
             string ID = Console.ReadLine();
