@@ -137,9 +137,12 @@ namespace UML_Console_Project.ProjectFiles
             Console.WriteLine("AddOffer");
             Console.WriteLine("Enter provider's name : ");
             string providerName = Console.ReadLine();
+
             proItems= MySystem.GetItemsByProvider(ref i,providerName);
+
             for (int j = 0; j < i; j++)
                 proItems[j].ViewItem();
+
             Console.WriteLine("Enter new offer's information");
             Console.WriteLine("Offer's ID : ");
             string ID = Console.ReadLine();

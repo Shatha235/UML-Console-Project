@@ -146,8 +146,8 @@ namespace UML_Console_Project.ProjectFiles
             for (int i=0; i <MySystem.PCounter;i++)
             { 
                 
-               if(Location== MySystem.ProviderArr[i].GetLocation() && Category==MySystem.ProviderArr[i].GetCategory())
-                    Console.WriteLine(MySystem.ProviderArr[i]);
+               if (MySystem.ProviderArr[i].GetLocation() == Location && MySystem.ProviderArr[i].GetCategory() == Category)
+                    Console.WriteLine(MySystem.ProviderArr[i].GetName());
               
              }
         }
@@ -191,7 +191,7 @@ namespace UML_Console_Project.ProjectFiles
         public void PlaceNewOrder()
         {
 
-            Console.WriteLine("Enter which of this it is current location (Area1 or Area2 or Area3 ):");
+            Console.WriteLine("Enter your current location (Area1 or Area2 or Area3 ):");
             string Location = Console.ReadLine();
             Console.WriteLine("Enter  the category of the provider please: ");
             string Category = Console.ReadLine();
@@ -199,8 +199,11 @@ namespace UML_Console_Project.ProjectFiles
             Console.WriteLine("Enter the provider name please: ");
             string NameP = Console.ReadLine();
             int j=0;
-            Item []I =MySystem.GetItemsByProvider(ref j,NameP);
-            for (int i=0;i<j;i++)
+            Item[] I = new Item[100];
+
+               I= MySystem.GetItemsByProvider(ref j , NameP);
+
+            for (int i = 0; i < j; i++)
             {
                 I[i].ViewItem();
             }
