@@ -113,7 +113,7 @@ namespace UML_Console_Project.ProjectFiles
             {
                 Console.Clear();
                 VeiwMyOrders();
-                Console.Write("if you finished reading please press Enter : ");
+                Console.Write("If you finished reading, please press Enter : ");
                 string s = Console.ReadLine();
                 Console.Clear();
                 Options();
@@ -176,12 +176,12 @@ namespace UML_Console_Project.ProjectFiles
         public void PlaceNewOrder()
         {
 
-            Console.WriteLine("Enter your current location (Area1 or Area2 or Area3 ):");
+            Console.WriteLine("Enter your current location (Area1 or Area2 or Area3) :");
             string Location = Console.ReadLine();
             Console.WriteLine("Enter  the category of the provider please (Market or Food) : ");
             string Category = Console.ReadLine();
             ViewAvailableProviders(Location,Category);
-            Console.WriteLine("Enter the provider name please: ");
+            Console.WriteLine("Enter the provider name please :");
             string Pname = Console.ReadLine();
             
             int j=0;
@@ -221,7 +221,7 @@ namespace UML_Console_Project.ProjectFiles
 
                 if (choice == 1)
                 {
-                    Console.WriteLine("\n\nPlaase Enter the ID and the Quantity of the item you want to add");
+                    Console.WriteLine("\n\nPlease Enter the ID and the Quantity of the item you want to add");
                     Console.Write("ID: ");
                     string ID = Console.ReadLine();
                     Console.Write("Quantity: ");
@@ -244,8 +244,8 @@ namespace UML_Console_Project.ProjectFiles
                 else if (choice == 2)
                 {
 
-                    Console.WriteLine("\n\nPlaase Enter the ID Offer you want to add");
-                    Console.Write("ID: ");
+                    Console.WriteLine("\n\nPlease Enter the ID of the Offer you want to add");
+                    Console.Write("Offer's ID: ");
                     string ID = Console.ReadLine();
                     
                     
@@ -300,7 +300,7 @@ namespace UML_Console_Project.ProjectFiles
                     MySystem.OrderArr[j].View();
             }
 
-            Console.Write("Enter Order ID please: ");
+            Console.Write("Enter the ID of the order you want to pay for please: ");
             string ID = Console.ReadLine();
 
             int c=0;
@@ -340,7 +340,7 @@ namespace UML_Console_Project.ProjectFiles
             }
 
 
-            Console.Write("Enter Order ID please: ");
+            Console.Write("Enter the ID of the order you want to post a review for please: ");
             string ID = Console.ReadLine();
 
             Console.Write("Enter the Review value please: ");
