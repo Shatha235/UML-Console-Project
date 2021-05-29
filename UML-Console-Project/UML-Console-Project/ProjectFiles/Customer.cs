@@ -263,7 +263,7 @@ namespace UML_Console_Project.ProjectFiles
                         if (I[i].GetID() == ID)
                         {
                             MySystem.ChangeItemQuantity(Pname, ID, Quantity);
-                            CostCounter += Quantity * I[i].GetPrice();
+                            CostCounter += (double)Quantity * I[i].GetPrice();
                             Ord.AddItem(I[i]);
                             break;                        
                         }
