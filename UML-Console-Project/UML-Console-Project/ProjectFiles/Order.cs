@@ -107,12 +107,7 @@ namespace UML_Console_Project.ProjectFiles
            Console.WriteLine("ID : " + ID + "Customer name :" + CustomerName + "Provider name: " + ProviderName + "Status : " +Status +"List of ordered item :" + ListOfItems + "Total Cost :" +TotalCost);
         }
 
-       /* static public string ChangeStatus( string sTO , string sFr)
-        { 
-           
-           sTO = sFr;
-           return sTO;
-        }*/
+      
         public Item GetItem(int t)
         {
             return (ListOfItems[t]);

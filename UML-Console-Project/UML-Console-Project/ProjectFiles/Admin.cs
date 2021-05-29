@@ -11,14 +11,22 @@ using UML_Console_Project.ProjectFiles;
 
 namespace UML_Console_Project.ProjectFiles
 {
-    class Admin : User
+    class Admin 
     {
+        static private string Username = "admin";
+        static private string Password = "00";
+
+        static public string GetUsername()
+        {
+            return Username;
+        }
+        static public string GetPassword()
+        {
+            return Password;
+        }
 
 
-        //I added this function here to organize the code a little more,However,I implemented it since it  belongs to the system originally
-        //<jebril>
-
-        static public void Options(int PCounter, Provider[] ProviderArr)
+        static public void Options()
         {
             int choice;
             Console.WriteLine("[1] Add new item for a specific provider");
@@ -116,7 +124,7 @@ namespace UML_Console_Project.ProjectFiles
             else
             {
                 Sh.Msg("You entered a wrong choice,\nplease enter a valid choice from 1-9 to continue...");
-                Options(PCounter, ProviderArr);
+                Options();
 
             }
 
@@ -128,17 +136,17 @@ namespace UML_Console_Project.ProjectFiles
             double price;
             int qty;
           
-                Console.WriteLine("AddItem");
+                
                 Console.WriteLine("Enter item's information");
-                Console.WriteLine("ID = ");
+                Console.Write("ID : ");
                 ID = Console.ReadLine();
-                Console.WriteLine("Description : ");
+                Console.Write("Description : ");
                 description = Console.ReadLine();
-                Console.WriteLine("Price : ");
+                Console.Write("Price : ");
                 price = Convert.ToDouble(Console.ReadLine());
-                Console.WriteLine("Quantity : ");
+                Console.Write("Quantity : ");
                 qty = Convert.ToInt32(Console.ReadLine());
-                Console.WriteLine("Enter provider's name : ");
+                Console.Write("Enter provider's name : ");
                 providerName = Console.ReadLine();
 
             for (int i = 0; i < MySystem.PCounter; i++)
@@ -148,7 +156,6 @@ namespace UML_Console_Project.ProjectFiles
 
                     MySystem.ProviderArr[i].AddItem(ID, description, price, qty);
                     Console.WriteLine("Item was added successfully.");
-
                     break;
                 }
              }
@@ -161,8 +168,8 @@ namespace UML_Console_Project.ProjectFiles
         {
             int i = 0;
             Item[] proItems = new Item[100];
-            Console.WriteLine("AddOffer");
-            Console.WriteLine("Enter provider's name : ");
+            
+            Console.Write("Enter provider's name : ");
             string providerName = Console.ReadLine();
 
             proItems= MySystem.GetItemsByProvider(ref i,providerName);
@@ -170,35 +177,35 @@ namespace UML_Console_Project.ProjectFiles
             for (int j = 0; j < i; j++)
                 proItems[j].ViewItem();
 
-            Console.WriteLine("Enter new offer's information");
-            Console.WriteLine("Offer's ID : ");
+            Console.WriteLine("Enter new offer's information\n");
+            Console.Write("Offer's ID : ");
             string ID = Console.ReadLine();
-            Console.WriteLine("Item ID : ");
+            Console.Write("Item ID : ");
             string itemID = Console.ReadLine();
-            Console.WriteLine("Quantity of items in the offer : ");
+            Console.Write("Quantity of items in the offer : ");
             int Quantity = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine("Offer price : ");
+            Console.Write("Offer price : ");
             double offerPrice = Convert.ToDouble(Console.ReadLine());
             Offer.AddOffer(ID ,providerName, itemID, Quantity, offerPrice);
             Console.WriteLine("Offer was added successfully.");
-
+            MySystem.Storefiles();
         }
         
         static public void ViewAllProviders()
         { 
-            Console.WriteLine("ViewAllProviders");
             for (int i = 0; i < MySystem.PCounter; i++)
             {
                  MySystem.ProviderArr[i].View();
+                Console.WriteLine("\n\n");
             }
         }
 
         static public void ViewAllCustomers()
         {
-            Console.WriteLine("ViewAllCustomers");
             for(int i=0;i<MySystem.CCounter;i++)
             {
                 MySystem.CustomerArr[i].View();
+                Console.WriteLine("\n\n");
             }
         }
 
@@ -207,23 +214,25 @@ namespace UML_Console_Project.ProjectFiles
             for(int i=0;i<MySystem.OrCounter;i++)
             {
                MySystem.OrderArr[i].ViewAllOrders();
+                Console.WriteLine("\n\n");
+
             }
         }
 
         static public void ViewAllOffers()
         {
-            Console.WriteLine("ViewAllOffers");
+            
             for(int i=0;i<MySystem.OfCounter;i++)
             {
                 MySystem.OfferArr[i].View();
+                Console.WriteLine("\n\n");
+
             }
 
         }
 
         static public void Deliver()
         {
-            Console.WriteLine("Deliver all paid orders");
-
             for (int i = 0; i < MySystem.OrCounter; i++)
             {
                 if (MySystem.OrderArr[i].GetStatus() == "paid")

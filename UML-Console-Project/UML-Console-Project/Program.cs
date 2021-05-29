@@ -48,21 +48,7 @@ namespace UML_Console_Project
 
             return o;
         }
-        /*static public Item ChangeAndReturnItem(string Pname,string ID,int Quantity)
-        {
-            int i = 0;
-            for (; i < PCounter; i++)
-            {
-                if (ProviderArr[i].GetName() == Pname)
-                    break;
-            }
-            for(int s=0;s<ProviderArr[i].ItemCounter;s++)
-            if(ProviderArr[i].GetItem(s).GetID()==ID)
-                {
-                    Order.AddItem(ProviderArr[i].GetItem(s));
-                }
-
-        }*/
+        
         static public Item[] GetItemsByProvider(ref int j, string ProviderName) //j returns number of items so we can use it in the loop in admin/customer
         {
             
@@ -324,10 +310,10 @@ namespace UML_Console_Project
             string username = Console.ReadLine();
             Console.Write("\nEnter passwrod: ");
             string password= Console.ReadLine();
-            if (username == "admin" && password == "00")
+            if (username == Admin.GetUsername() && password == Admin.GetPassword())
             {
                 Console.Clear();
-                Admin.Options(PCounter, ProviderArr);
+                Admin.Options();
             }
             else
             {
@@ -412,7 +398,7 @@ namespace UML_Console_Project
         static void Main(string[] args)
         {
 
-            Admin admin = new Admin();
+            
 
             //opening console in fullscreen
             Console.SetWindowSize(Console.LargestWindowWidth, Console.LargestWindowHeight);
@@ -427,18 +413,7 @@ namespace UML_Console_Project
             //**********************
             MySystem.Loadfiles();
             MySystem.Login();
-            //for (int i = 0; i < MySystem.PCounter; i++)
-            //   MySystem.ProviderArr[i].View();
-            /*Item[] item = null;
-            item = new Item[1];
-            item[0] = new Item("a", "b", 3, 4);
-            item[0].ViewItem();
-            Provider[] pro = null;
-            pro = new Provider[3];
             
-            pro[0] = new Provider("ahmad", "market", "area1", 0.5, 0,  item, 3,1);
-            
-            pro[0].View();*/
         }
     }
 }

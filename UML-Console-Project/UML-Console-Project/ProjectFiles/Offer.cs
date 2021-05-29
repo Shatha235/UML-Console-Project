@@ -79,7 +79,7 @@ namespace UML_Console_Project.ProjectFiles
         static public void AddOffer(string ID , string ProviderName , string ItemID , int Quantity, double Price)
         {
             Offer f = new Offer(ID,ProviderName,ItemID,Quantity,Price);
-            MySystem.OfferArr[MySystem.OfCounter++] = f;
+            MySystem.OfferArr[MySystem.OfCounter++] = new Offer(f);
             MySystem.Storefiles();
            
         }

@@ -11,8 +11,10 @@ using UML_Console_Project;
 namespace UML_Console_Project.ProjectFiles
 {
     [Serializable]
-    class Customer : User
+    class Customer 
     {
+        private string Name;
+        private string Password;
         private double CashCredit;
  
         public Customer(string Name="", string Password="", double CashCredit=0.0)
@@ -87,9 +89,6 @@ namespace UML_Console_Project.ProjectFiles
         }
 
 
-
-        //I added this function here to organize the code a little more,However,I implemented it since it  belongs to the system originally
-        //<jebril>
 
         public void Options()
         {
@@ -176,32 +175,6 @@ namespace UML_Console_Project.ProjectFiles
         }
         
        
-     
-
-        //2
-
-       /* public double calculateTotalCost(string name,string ID,int Quantity) //This function is temporery until we know ID offer
-        { 
-                // ex : l1 : 4
-                //  quntity updated ,  price * Quantity=4*4=16 jd 
-            // Delivery cost= delivery rate*the cost of the ordered items.( price * Quantity)
-            // Total cost = price * Quantity + Delivery cost  .... cashcredit update
-            double deliveryRate;
-            Item [] item = new Item [100];
-            MySystem.ProviderArr=new Provider[100];
-            MySystem.Loadfiles();
-            for (int i=0; i < MySystem.PCounter; i++ )
-            { if (MySystem.ProviderArr[i].GetName==name)
-                    deliveryRate=MySystem.ProviderArr[i].CalculateDeliveryRate();  
-            }
-            for (int t=0 ; t < MySystem.PCounter;t++ )
-            {
-
-            }
-        }*/
-
-                
-        //5
         public void PlaceNewOrder()
         {
 
@@ -212,7 +185,7 @@ namespace UML_Console_Project.ProjectFiles
             ViewAvailableProviders(Location,Category);
             Console.WriteLine("Enter the provider name please: ");
             string Pname = Console.ReadLine();
-            //print error
+            
             int j=0;
             Item[] I = MySystem.GetItemsByProvider(ref j, Pname); 
             
@@ -229,7 +202,7 @@ namespace UML_Console_Project.ProjectFiles
             {
                 O[i].View();
             }
-            //end of possible error
+            
             Order Ord = new Order();
             double CostCounter = MySystem.GetProviderDeliveryRate(Pname);
             int choice;
@@ -256,8 +229,6 @@ namespace UML_Console_Project.ProjectFiles
                     string ID = Console.ReadLine();
                     Console.Write("Quantity: ");
                     int Quantity = Convert.ToInt32(Console.ReadLine());
-                    //function in items class , takes ID and Quantity, to decrease quantity and add item to list of items in order object
-                    //cost counter
                     
                     for (int i=0;i<j;i++)
                     {
@@ -312,8 +283,7 @@ namespace UML_Console_Project.ProjectFiles
 
         public void VeiwMyOrders()
         {
-            //testing
-            //Console.WriteLine("VeiwMyOrders");
+            
             Order [] order =new Order [100];
             int j=0;
             string Cname = this.GetUsername();
@@ -324,8 +294,7 @@ namespace UML_Console_Project.ProjectFiles
 
         public void PayForOrder()
         {
-            //testing
-            //Console.WriteLine("PayForOrder");
+            
             
             int i =0;
             for (;i<MySystem.OrCounter;i++)
