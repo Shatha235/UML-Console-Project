@@ -216,12 +216,13 @@ namespace UML_Console_Project.ProjectFiles
             int j=0;
             Item[] I = MySystem.GetItemsByProvider(ref j, Pname); 
             
-            Console.WriteLine("______" + j + "________");
+            
             for (int i=0;i<j;i++)
             {
                 I[i].ViewItem();
+               
             }
-            //end of main error
+            
             int k = 0;
             Offer []O = MySystem.GetOffersByProvider(ref k, Pname);
             for (int i = 0; i < k; i++)
@@ -235,7 +236,7 @@ namespace UML_Console_Project.ProjectFiles
             bool f = true;
             do
             {
-                //Console.Clear();
+                Console.Clear();
                for (int i=0;i<j ;i++)
             {
                 I[i].ViewItem();
