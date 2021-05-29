@@ -62,7 +62,7 @@ namespace UML_Console_Project.ProjectFiles
             {
                 Console.Clear();
                 ViewAllProviders();
-                Console.Write("if you finished reading please press Enter : ");
+                Console.Write("if you finished reading, please press Enter : ");
                 string s = Console.ReadLine();
                 Console.Clear();
                 Options();
@@ -73,7 +73,7 @@ namespace UML_Console_Project.ProjectFiles
             {
                 Console.Clear();
                 ViewAllCustomers();
-                Console.Write("if you finished reading please press Enter : ");
+                Console.Write("if you finished reading, please press Enter : ");
                 string s = Console.ReadLine();
                 Console.Clear();
                 Options();
@@ -85,7 +85,7 @@ namespace UML_Console_Project.ProjectFiles
             {
                 Console.Clear();
                 ViewAllOrders();
-                Console.Write("if you finished reading please press Enter : ");
+                Console.Write("if you finished reading, please press Enter : ");
                 string s = Console.ReadLine();
                 Console.Clear();
                 Options();
@@ -97,7 +97,7 @@ namespace UML_Console_Project.ProjectFiles
             {
                 Console.Clear();
                 ViewAllOffers();
-                Console.Write("if you finished reading please press Enter.");
+                Console.Write("if you finished reading, please press Enter : ");
                 string s = Console.ReadLine();
                 Console.Clear();
                 Options();
@@ -146,12 +146,12 @@ namespace UML_Console_Project.ProjectFiles
             int qty;
           
                 
-                Console.WriteLine("Enter item's information");
-                Console.Write("ID : ");
+                Console.WriteLine("Enter the information of the item you want to add please : ");
+                Console.Write("Item's ID : ");
                 ID = Console.ReadLine();
-                Console.Write("Description : ");
+                Console.Write("Description (Juice,Sandwich,Sweet,...) : ");
                 description = Console.ReadLine();
-                Console.Write("Price : ");
+                Console.Write("Price/unit : ");
                 price = Convert.ToDouble(Console.ReadLine());
                 Console.Write("Quantity : ");
                 qty = Convert.ToInt32(Console.ReadLine());
@@ -178,7 +178,7 @@ namespace UML_Console_Project.ProjectFiles
             int i = 0;
             Item[] proItems = new Item[100];
             
-            Console.Write("Enter provider's name : ");
+            Console.Write("Enter provider's name who wants to present the offer : ");
             string providerName = Console.ReadLine();
 
             proItems= MySystem.GetItemsByProvider(ref i,providerName);
@@ -186,14 +186,14 @@ namespace UML_Console_Project.ProjectFiles
             for (int j = 0; j < i; j++)
                 proItems[j].ViewItem();
 
-            Console.WriteLine("Enter new offer's information\n");
-            Console.Write("Offer's ID : ");
+            Console.WriteLine("Enter the information of the offer you want to add please :\n");
+            Console.Write("Offer's ID(Unique) : ");
             string ID = Console.ReadLine();
-            Console.Write("Item ID : ");
+            Console.Write("Item's ID : ");
             string itemID = Console.ReadLine();
             Console.Write("Quantity of items in the offer : ");
             int Quantity = Convert.ToInt32(Console.ReadLine());
-            Console.Write("Offer price : ");
+            Console.Write("Offer's price : ");
             double offerPrice = Convert.ToDouble(Console.ReadLine());
             Offer.AddOffer(ID ,providerName, itemID, Quantity, offerPrice);
             Console.WriteLine("Offer was added successfully.");

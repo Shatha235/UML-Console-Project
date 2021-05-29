@@ -113,7 +113,7 @@ namespace UML_Console_Project.ProjectFiles
             {
                 Console.Clear();
                 VeiwMyOrders();
-                Console.Write("If you finished reading, please press Enter : ");
+                Console.Write("if you finished reading, please press Enter : ");
                 string s = Console.ReadLine();
                 Console.Clear();
                 Options();
@@ -269,7 +269,7 @@ namespace UML_Console_Project.ProjectFiles
 
             } while (f==true);
 
-            Console.WriteLine("Enter A Unique ID for the Order please: ");
+            Console.WriteLine("Enter a unique ID for the order please: ");
             string OrderID = Console.ReadLine();
             
            Ord.SetOrderInfo(OrderID,this.Name,Pname,"not paid",CostCounter);
