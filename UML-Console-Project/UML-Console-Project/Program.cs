@@ -84,16 +84,24 @@ namespace UML_Console_Project
         }
 
         static public void CancelOffer(string ID)
-        { int i = 0;
+        { 
+            int i = 0;
             for(;i<OfCounter;i++)
                 if (OfferArr[i].GetID() == ID)
                     break;
 
-            for (int j = i; j < OfCounter - 1; j++)
-                OfferArr[j] = OfferArr[j + 1];
+            if (i == 0)
+            {
+                OfCounter = 0;
+            }
+            else
+            {
+                for (int j = i; j < OfCounter - 1; j++)
+                    OfferArr[j] = OfferArr[j + 1];
 
-            OfCounter--;
-                
+                OfCounter--;
+            }
+            Storefiles();
         }
 
         static public void ChangeItemQuantity(string Pname,string ID,int Q)
@@ -380,14 +388,22 @@ namespace UML_Console_Project
 
         static public void Reset()
         {
-            MySystem.PCounter = 0;
-            MySystem.OrCounter = 0;
-            MySystem.OfCounter = 0;
-            MySystem.CCounter = 0;
-            Provider.InaitialData();
-            Customer.InaitialData();
-            Offer.InaitialData();
-            Order.InaitialData();
+            Console.Write("do you want to reset the database? y = yes , anything else = no  : ");
+            string s=Console.ReadLine();
+            if (s == "y")
+            {
+                MySystem.PCounter = 0;
+                MySystem.OrCounter = 0;
+                MySystem.OfCounter = 0;
+                MySystem.CCounter = 0;
+                Provider.InaitialData();
+                Customer.InaitialData();
+                Offer.InaitialData();
+                Order.InaitialData();
+                
+            }
+
+            Console.Clear();
         }
 
     }
@@ -409,7 +425,7 @@ namespace UML_Console_Project
 
             //Warning : only call if you wanna reset All the databases
             //**********************
-            //MySystem.Reset();
+            MySystem.Reset();
             //**********************
             MySystem.Loadfiles();
             MySystem.Login();

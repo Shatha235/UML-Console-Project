@@ -104,8 +104,8 @@ namespace UML_Console_Project.ProjectFiles
         public void View()
         { 
         
-           Console.WriteLine("ID : " + ID + "Customer name :" + CustomerName + "Provider name: " + ProviderName + "Status : " + Status  + "Total Cost :" +TotalCost);
-            Console.WriteLine("\n\nList of ordered item:  \n\n");
+           Console.WriteLine("ID : " + ID + "     Customer name :" + CustomerName + "     Provider name: " + ProviderName + "     Status : " + Status  + "     Total Cost :" + TotalCost);
+            Console.WriteLine("\nList of ordered item:  \n");
             for(int i=0;i<ItemCounter;i++)
             {
                 ListOfItems[i].ViewItem();

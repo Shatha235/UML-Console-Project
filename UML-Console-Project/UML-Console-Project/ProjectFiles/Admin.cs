@@ -46,7 +46,7 @@ namespace UML_Console_Project.ProjectFiles
                 Console.Clear();
                 AddItem();
                 Console.Clear();
-                MySystem.LoginAsAdmin();
+                Options();
             }
 
             else if (choice == 2)
@@ -54,7 +54,7 @@ namespace UML_Console_Project.ProjectFiles
                 Console.Clear();
                 AddOffer();
                 Console.Clear();
-                MySystem.LoginAsAdmin();
+                Options();
 
             }
 
@@ -62,8 +62,10 @@ namespace UML_Console_Project.ProjectFiles
             {
                 Console.Clear();
                 ViewAllProviders();
+                Console.Write("if you finished reading please press Enter : ");
+                string s = Console.ReadLine();
                 Console.Clear();
-                MySystem.LoginAsAdmin();
+                Options();
 
             }
 
@@ -71,8 +73,11 @@ namespace UML_Console_Project.ProjectFiles
             {
                 Console.Clear();
                 ViewAllCustomers();
+                Console.Write("if you finished reading please press Enter : ");
+                string s = Console.ReadLine();
                 Console.Clear();
-                MySystem.LoginAsAdmin();
+                Options();
+
 
             }
 
@@ -80,8 +85,11 @@ namespace UML_Console_Project.ProjectFiles
             {
                 Console.Clear();
                 ViewAllOrders();
+                Console.Write("if you finished reading please press Enter : ");
+                string s = Console.ReadLine();
                 Console.Clear();
-                MySystem.LoginAsAdmin();
+                Options();
+
 
             }
 
@@ -89,8 +97,10 @@ namespace UML_Console_Project.ProjectFiles
             {
                 Console.Clear();
                 ViewAllOffers();
+                Console.Write("if you finished reading please press Enter : ");
+                string s = Console.ReadLine();
                 Console.Clear();
-                MySystem.LoginAsAdmin();
+                Options();
 
             }
 
@@ -99,7 +109,7 @@ namespace UML_Console_Project.ProjectFiles
                 Console.Clear();
                 Deliver();
                 Console.Clear();
-                MySystem.LoginAsAdmin();
+                Options();
 
             }
 
@@ -108,7 +118,7 @@ namespace UML_Console_Project.ProjectFiles
                 Console.Clear();
                 CancelOffer();
                 Console.Clear();
-                MySystem.LoginAsAdmin();
+                Options();
 
             }
 
@@ -116,8 +126,7 @@ namespace UML_Console_Project.ProjectFiles
             {
                 Console.Clear();
                 MySystem.Logout();
-                Console.Clear();
-                MySystem.LoginAsAdmin();
+                
 
             }
 
@@ -222,7 +231,7 @@ namespace UML_Console_Project.ProjectFiles
         static public void ViewAllOffers()
         {
             
-            for(int i=0;i<MySystem.OfCounter;i++)
+            for(int i=0;i<1;i++)
             {
                 MySystem.OfferArr[i].View();
                 Console.WriteLine("\n\n");

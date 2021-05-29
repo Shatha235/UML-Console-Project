@@ -66,7 +66,7 @@ namespace UML_Console_Project.ProjectFiles
         }
         public void View()
         {
-            //try to also get the name of the item and print it
+            
             Console.WriteLine("ID: " + ID + "    Provider name: " + ProviderName + "    ItemID: " + ItemID + "  Quantity: " + Quantity + "  Price: " + Price);
         }
 

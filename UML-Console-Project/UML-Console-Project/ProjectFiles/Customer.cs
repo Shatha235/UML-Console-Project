@@ -106,15 +106,18 @@ namespace UML_Console_Project.ProjectFiles
                 Console.Clear();
                 PlaceNewOrder();
                 Console.Clear();
-                MySystem.LoginAsCustomer();
+                Options();
             }
 
             else if (choice == 2)
             {
                 Console.Clear();
                 VeiwMyOrders();
+                Console.Write("if you finished reading please press Enter : ");
+                string s = Console.ReadLine();
                 Console.Clear();
-                MySystem.LoginAsCustomer();
+                Options();
+
 
             }
 
@@ -123,7 +126,7 @@ namespace UML_Console_Project.ProjectFiles
                 Console.Clear();
                 PayForOrder();
                 Console.Clear();
-                MySystem.LoginAsCustomer();
+                Options();
 
             }
 
@@ -132,7 +135,7 @@ namespace UML_Console_Project.ProjectFiles
                 Console.Clear();
                 PostAReview();
                 Console.Clear();
-                MySystem.LoginAsCustomer();
+                Options();
 
             }
 
@@ -140,8 +143,7 @@ namespace UML_Console_Project.ProjectFiles
             {
                 Console.Clear();
                 MySystem.Logout();
-                Console.Clear();
-                MySystem.LoginAsCustomer();
+                
 
             }
 

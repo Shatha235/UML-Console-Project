@@ -103,6 +103,7 @@ namespace UML_Console_Project.ProjectFiles
           
             return ("Name: " + Name + "    Category: " + Category + "    Location: " + Location + "    Review: " + Convert.ToString(100 * Review) + "%" + "    DeliveryRate: " + Convert.ToString(100 * DeliveryRate) + "%" + "    Income: " + Income);
         }
+       
 
         //gets
         public string GetName()
@@ -200,7 +201,7 @@ namespace UML_Console_Project.ProjectFiles
             i2[1] = new Item("I3", "Sweet", 15, 20);
             i2[2] = new Item("I4", "Steak", 20, 15 );
             i2[3] = new Item("I5" ,"Salad" ,5, 25);
-            Provider p1 = new Provider("MY Bread", "Food", "Area1", 0.75, 0.07, i2, 200,4);
+            Provider p1 = new Provider("My Bread", "Food", "Area1", 0.75, 0.07, i2, 200,4);
 
             MySystem.ProviderArr[1]=new Provider(p1);
             
