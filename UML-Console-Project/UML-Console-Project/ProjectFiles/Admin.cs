@@ -32,7 +32,7 @@ namespace UML_Console_Project.ProjectFiles
             Console.WriteLine("[1] Add new item for a specific provider");
             Console.WriteLine("[2] Present new offer");
             Console.WriteLine("[3] View all providers");
-            Console.WriteLine("[4] View all customersr");
+            Console.WriteLine("[4] View all customers");
             Console.WriteLine("[5] View all orders");
             Console.WriteLine("[6] View all offers");
             Console.WriteLine("[7] Deliver all paid orders");
@@ -46,7 +46,7 @@ namespace UML_Console_Project.ProjectFiles
                 Console.Clear();
                 AddItem();
                 Console.Clear();
-                MySystem.LoginAsAdmin();
+                Options();
             }
 
             else if (choice == 2)
@@ -54,7 +54,7 @@ namespace UML_Console_Project.ProjectFiles
                 Console.Clear();
                 AddOffer();
                 Console.Clear();
-                MySystem.LoginAsAdmin();
+                Options();
 
             }
 
@@ -62,8 +62,10 @@ namespace UML_Console_Project.ProjectFiles
             {
                 Console.Clear();
                 ViewAllProviders();
+                Console.Write("if you finished reading please press Enter : ");
+                string s = Console.ReadLine();
                 Console.Clear();
-                MySystem.LoginAsAdmin();
+                Options();
 
             }
 
@@ -71,8 +73,11 @@ namespace UML_Console_Project.ProjectFiles
             {
                 Console.Clear();
                 ViewAllCustomers();
+                Console.Write("if you finished reading please press Enter : ");
+                string s = Console.ReadLine();
                 Console.Clear();
-                MySystem.LoginAsAdmin();
+                Options();
+
 
             }
 
@@ -80,8 +85,11 @@ namespace UML_Console_Project.ProjectFiles
             {
                 Console.Clear();
                 ViewAllOrders();
+                Console.Write("if you finished reading please press Enter : ");
+                string s = Console.ReadLine();
                 Console.Clear();
-                MySystem.LoginAsAdmin();
+                Options();
+
 
             }
 
@@ -89,8 +97,10 @@ namespace UML_Console_Project.ProjectFiles
             {
                 Console.Clear();
                 ViewAllOffers();
+                Console.Write("if you finished reading please press Enter.");
+                string s = Console.ReadLine();
                 Console.Clear();
-                MySystem.LoginAsAdmin();
+                Options();
 
             }
 
@@ -99,7 +109,7 @@ namespace UML_Console_Project.ProjectFiles
                 Console.Clear();
                 Deliver();
                 Console.Clear();
-                MySystem.LoginAsAdmin();
+                Options();
 
             }
 
@@ -108,7 +118,7 @@ namespace UML_Console_Project.ProjectFiles
                 Console.Clear();
                 CancelOffer();
                 Console.Clear();
-                MySystem.LoginAsAdmin();
+                Options();
 
             }
 
@@ -116,8 +126,7 @@ namespace UML_Console_Project.ProjectFiles
             {
                 Console.Clear();
                 MySystem.Logout();
-                Console.Clear();
-                MySystem.LoginAsAdmin();
+                
 
             }
 
@@ -213,7 +222,7 @@ namespace UML_Console_Project.ProjectFiles
         {
             for(int i=0;i<MySystem.OrCounter;i++)
             {
-               MySystem.OrderArr[i].ViewAllOrders();
+               MySystem.OrderArr[i].View();
                 Console.WriteLine("\n\n");
 
             }
@@ -249,7 +258,7 @@ namespace UML_Console_Project.ProjectFiles
         {
             Console.WriteLine("CancelOffer");
             ViewAllOffers();
-            Console.WriteLine("Enter offer's ID : ");
+            Console.Write("Enter offer's ID : ");
             string ID = Console.ReadLine();
             MySystem.CancelOffer(ID);
             MySystem.Storefiles();

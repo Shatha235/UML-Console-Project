@@ -19,7 +19,7 @@ namespace UML_Console_Project.ProjectFiles
         private Item [] ListOfItems=new Item[100];
         public int ItemCounter = 0;
         private double TotalCost;
-         public Order (string ID="",string CustomerName="",string ProviderName="",string Status="",Item [] ListOfItems = null,double TotalCost=0.0)
+         public Order (string ID="",string CustomerName="",string ProviderName="",string Status="",Item [] ListOfItems = null,double TotalCost=0)
            {
             this.ID = ID;
             this.CustomerName=CustomerName;
@@ -46,7 +46,7 @@ namespace UML_Console_Project.ProjectFiles
             this.TotalCost = O.TotalCost;
 
         }
-        public void Setall(string ID="",string CustomerName="",string ProviderName="",string Status="",Item [] ListOfItems = null,double TotalCost=0.0)
+        public void Setall(string ID="",string CustomerName="",string ProviderName="",string Status="",Item [] ListOfItems = null,double TotalCost=0)
         {
             this.ID = ID;
             this.CustomerName=CustomerName;
@@ -101,10 +101,15 @@ namespace UML_Console_Project.ProjectFiles
             MySystem.OrderArr[MySystem.OrCounter++] = o;
             MySystem.Storefiles();
         }
-        public void ViewAllOrders()
+        public void View()
         { 
         
-           Console.WriteLine("ID : " + ID + "Customer name :" + CustomerName + "Provider name: " + ProviderName + "Status : " +Status +"List of ordered item :" + ListOfItems + "Total Cost :" +TotalCost);
+           Console.WriteLine("ID : " + ID + "     Customer name :" + CustomerName + "     Provider name: " + ProviderName + "     Status : " + Status  + "     Total Cost :" + TotalCost);
+            Console.WriteLine("\nList of ordered item:  \n");
+            for(int i=0;i<ItemCounter;i++)
+            {
+                ListOfItems[i].ViewItem();
+            }
         }
 
       

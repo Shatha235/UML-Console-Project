@@ -19,7 +19,7 @@ namespace UML_Console_Project.ProjectFiles
         private double Review;
         private double DeliveryRate;
         private Item[] ListOfItems;
-        private int Income;
+        private double Income;
         public int ItemCounter=0;
         public Provider()
         {
@@ -103,6 +103,7 @@ namespace UML_Console_Project.ProjectFiles
           
             return ("Name: " + Name + "    Category: " + Category + "    Location: " + Location + "    Review: " + Convert.ToString(100 * Review) + "%" + "    DeliveryRate: " + Convert.ToString(100 * DeliveryRate) + "%" + "    Income: " + Income);
         }
+       
 
         //gets
         public string GetName()
@@ -147,20 +148,24 @@ namespace UML_Console_Project.ProjectFiles
         {
             ListOfItems[index].SetQuantity(Q);
         }
-        public int GetIncome()
+        public double GetIncome()
         { 
             return this.Income;
         }
-        
+        public void IncomeUpdate( double totalCost)
+        {
+            Income += totalCost;
+            
+        }
 
         //functions
-        
 
-       
+
+
         public void  SetNewReview(double r)
         {
           double Average;
-          Average = (r + this.Review)/2;
+          Average = (0.01*r + this.Review)/2;
             
             Review= Average;
         }
@@ -196,7 +201,7 @@ namespace UML_Console_Project.ProjectFiles
             i2[1] = new Item("I3", "Sweet", 15, 20);
             i2[2] = new Item("I4", "Steak", 20, 15 );
             i2[3] = new Item("I5" ,"Salad" ,5, 25);
-            Provider p1 = new Provider("MY Bread", "Food", "Area1", 0.75, 0.07, i2, 200,4);
+            Provider p1 = new Provider("My Bread", "Food", "Area1", 0.75, 0.07, i2, 200,4);
 
             MySystem.ProviderArr[1]=new Provider(p1);
             
