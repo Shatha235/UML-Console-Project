@@ -19,7 +19,7 @@ namespace UML_Console_Project.ProjectFiles
         int Quantity;
         double Price;
 
-        public Offer(string ID="",string ProviderName="",string ItemID="",int Quantity=0, double Price =0)
+        public Offer(string ID="",string ProviderName="",string ItemID="",int Quantity=0, double Price =0.0)
         {
             this.ID = ID;
             this.ProviderName = ProviderName;
@@ -38,7 +38,7 @@ namespace UML_Console_Project.ProjectFiles
         }
 
 
-        public void Setall(string ID = "", string ProviderName = "", string ItemID = "", int Quantity = 0, double Price = 0)
+        public void Setall(string ID = "", string ProviderName = "", string ItemID = "", int Quantity = 0, double Price = 0.0)
         {
             this.ID = ID;
             this.ProviderName = ProviderName;

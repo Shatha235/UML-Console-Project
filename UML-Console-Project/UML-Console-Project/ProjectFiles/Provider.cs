@@ -26,8 +26,8 @@ namespace UML_Console_Project.ProjectFiles
             this.Name ="";
             this.Category = "";
             this.Location = "";
-            this.Review = 0;
-            this.DeliveryRate = 0;
+            this.Review = 0.0;
+            this.DeliveryRate = 0.0;
             this.ItemCounter = 0;
             this.ListOfItems = new Item[100];
             this.Income = 0;
@@ -165,7 +165,7 @@ namespace UML_Console_Project.ProjectFiles
             Review= Average;
         }
         
-        public void AddItem(string ID, string Description, int Price, int Quantity)
+        public void AddItem(string ID, string Description, double Price, int Quantity)
         {
             ListOfItems[ItemCounter++] = new Item( ID,  Description,  Price,  Quantity);
         }

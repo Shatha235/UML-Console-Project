@@ -125,7 +125,8 @@ namespace UML_Console_Project.ProjectFiles
         {
 
             string ID, description, providerName;
-            int qty, price;
+            double price;
+            int qty;
           
                 Console.WriteLine("AddItem");
                 Console.WriteLine("Enter item's information");
@@ -134,7 +135,7 @@ namespace UML_Console_Project.ProjectFiles
                 Console.WriteLine("Description : ");
                 description = Console.ReadLine();
                 Console.WriteLine("Price : ");
-                price = Convert.ToInt32(Console.ReadLine());
+                price = Convert.ToDouble(Console.ReadLine());
                 Console.WriteLine("Quantity : ");
                 qty = Convert.ToInt32(Console.ReadLine());
                 Console.WriteLine("Enter provider's name : ");

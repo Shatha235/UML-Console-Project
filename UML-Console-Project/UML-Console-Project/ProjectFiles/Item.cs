@@ -17,7 +17,7 @@ namespace UML_Console_Project.ProjectFiles
         private double Price;
         private int Quantity;
 
-        public  Item(string ID ="", string Description ="", double Price =0, int Quantity=0)
+        public  Item(string ID ="", string Description ="", double Price =0.0, int Quantity=0)
         { 
             this.ID=ID;
             this.Description=Description;
