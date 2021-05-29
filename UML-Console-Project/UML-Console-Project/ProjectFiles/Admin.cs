@@ -32,7 +32,7 @@ namespace UML_Console_Project.ProjectFiles
             Console.WriteLine("[1] Add new item for a specific provider");
             Console.WriteLine("[2] Present new offer");
             Console.WriteLine("[3] View all providers");
-            Console.WriteLine("[4] View all customersr");
+            Console.WriteLine("[4] View all customers");
             Console.WriteLine("[5] View all orders");
             Console.WriteLine("[6] View all offers");
             Console.WriteLine("[7] Deliver all paid orders");
@@ -97,7 +97,7 @@ namespace UML_Console_Project.ProjectFiles
             {
                 Console.Clear();
                 ViewAllOffers();
-                Console.Write("if you finished reading please press Enter : ");
+                Console.Write("if you finished reading please press Enter.");
                 string s = Console.ReadLine();
                 Console.Clear();
                 Options();
@@ -231,7 +231,7 @@ namespace UML_Console_Project.ProjectFiles
         static public void ViewAllOffers()
         {
             
-            for(int i=0;i<1;i++)
+            for(int i=0;i<MySystem.OfCounter;i++)
             {
                 MySystem.OfferArr[i].View();
                 Console.WriteLine("\n\n");

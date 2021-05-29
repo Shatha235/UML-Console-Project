@@ -19,7 +19,7 @@ namespace UML_Console_Project.ProjectFiles
         private Item [] ListOfItems=new Item[100];
         public int ItemCounter = 0;
         private double TotalCost;
-         public Order (string ID="",string CustomerName="",string ProviderName="",string Status="",Item [] ListOfItems = null,double TotalCost=0.0)
+         public Order (string ID="",string CustomerName="",string ProviderName="",string Status="",Item [] ListOfItems = null,double TotalCost=0)
            {
             this.ID = ID;
             this.CustomerName=CustomerName;
@@ -46,7 +46,7 @@ namespace UML_Console_Project.ProjectFiles
             this.TotalCost = O.TotalCost;
 
         }
-        public void Setall(string ID="",string CustomerName="",string ProviderName="",string Status="",Item [] ListOfItems = null,double TotalCost=0.0)
+        public void Setall(string ID="",string CustomerName="",string ProviderName="",string Status="",Item [] ListOfItems = null,double TotalCost=0)
         {
             this.ID = ID;
             this.CustomerName=CustomerName;

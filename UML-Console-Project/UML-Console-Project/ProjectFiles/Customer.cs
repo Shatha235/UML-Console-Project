@@ -234,6 +234,7 @@ namespace UML_Console_Project.ProjectFiles
                         {
                             MySystem.ChangeItemQuantity(Pname, ID, Quantity);
                             CostCounter += (double)Quantity * I[i].GetPrice();
+                            
                             Ord.AddItem(I[i]);
                             break;                        
                         }
@@ -281,26 +282,22 @@ namespace UML_Console_Project.ProjectFiles
 
         public void VeiwMyOrders()
         {
-            
-            Order [] order =new Order [100];
-            int j=0;
-            string Cname = this.GetUsername();
-            order = MySystem.GetOrdersByCustomer(ref j,Cname);
-            for (int i=0 ; i<j;i++)
-                order[i].View();
+            for (int i=0 ; i<MySystem.OrCounter;i++)
+                if(MySystem.OrderArr[i].GetCustomerName()== this.GetUsername())
+                MySystem.OrderArr[i].View();
         }
 
         public void PayForOrder()
         {
             
             
-            int i =0;
-            Order[] O = MySystem.GetOrdersByCustomer(ref i,Name);
+            
+            
 
-            for (int j=0;j<i;j++)
+            for (int j=0;j<MySystem.OrCounter;j++)
             { 
-                if (O[i].GetStatus()=="not paid")
-                    O[i].View();
+                if (MySystem.OrderArr[j].GetCustomerName()==this.Name &&MySystem.OrderArr[j].GetStatus()=="not paid")
+                    MySystem.OrderArr[j].View();
             }
 
             Console.Write("Enter Order ID please: ");
@@ -334,17 +331,18 @@ namespace UML_Console_Project.ProjectFiles
 
         public void PostAReview()
         {
-            int i = 0;
-            Order[] O = MySystem.GetOrdersByCustomer(ref i, Name);
+           
 
-            for (int k = 0; k < i; k++)
+            for (int k = 0; k < MySystem.OrCounter; k++)
             {
-                if (O[i].GetStatus() == "delivered")
-                    O[i].View();
+                if (MySystem.OrderArr[k].GetCustomerName() == this.Name && MySystem.OrderArr[k].GetStatus() == "delivered")
+                    MySystem.OrderArr[k].View();
             }
+
 
             Console.Write("Enter Order ID please: ");
             string ID = Console.ReadLine();
+
             Console.Write("Enter the Review value please: ");
             double review = Convert.ToDouble(Console.ReadLine());
 

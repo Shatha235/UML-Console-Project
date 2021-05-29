@@ -165,7 +165,7 @@ namespace UML_Console_Project.ProjectFiles
         public void  SetNewReview(double r)
         {
           double Average;
-          Average = (r + this.Review)/2;
+          Average = (0.01*r + this.Review)/2;
             
             Review= Average;
         }
