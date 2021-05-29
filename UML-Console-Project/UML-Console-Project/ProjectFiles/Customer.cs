@@ -188,7 +188,6 @@ namespace UML_Console_Project.ProjectFiles
             
             int j=0;
             Item[] I = MySystem.GetItemsByProvider(ref j, Pname);
-            Console.WriteLine(I);
             
             for (int i=0;i<j;i++)
             {
@@ -291,7 +290,8 @@ namespace UML_Console_Project.ProjectFiles
             for (int i=0 ; i<j;i++)
                 order[i].ViewAllOrders();
         }
-
+       
+        
         public void PayForOrder()
         {
             
