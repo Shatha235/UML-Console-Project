@@ -213,7 +213,7 @@ namespace UML_Console_Project.ProjectFiles
         {
             for(int i=0;i<MySystem.OrCounter;i++)
             {
-               MySystem.OrderArr[i].ViewAllOrders();
+               MySystem.OrderArr[i].View();
                 Console.WriteLine("\n\n");
 
             }
@@ -249,7 +249,7 @@ namespace UML_Console_Project.ProjectFiles
         {
             Console.WriteLine("CancelOffer");
             ViewAllOffers();
-            Console.WriteLine("Enter offer's ID : ");
+            Console.Write("Enter offer's ID : ");
             string ID = Console.ReadLine();
             MySystem.CancelOffer(ID);
             MySystem.Storefiles();

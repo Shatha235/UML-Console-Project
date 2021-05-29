@@ -19,7 +19,7 @@ namespace UML_Console_Project.ProjectFiles
         private double Review;
         private double DeliveryRate;
         private Item[] ListOfItems;
-        private int Income;
+        private double Income;
         public int ItemCounter=0;
         public Provider()
         {
@@ -147,16 +147,20 @@ namespace UML_Console_Project.ProjectFiles
         {
             ListOfItems[index].SetQuantity(Q);
         }
-        public int GetIncome()
+        public double GetIncome()
         { 
             return this.Income;
         }
-        
+        public void IncomeUpdate( double totalCost)
+        {
+            Income += totalCost;
+            
+        }
 
         //functions
-        
 
-       
+
+
         public void  SetNewReview(double r)
         {
           double Average;

@@ -101,10 +101,15 @@ namespace UML_Console_Project.ProjectFiles
             MySystem.OrderArr[MySystem.OrCounter++] = o;
             MySystem.Storefiles();
         }
-        public void ViewAllOrders()
+        public void View()
         { 
         
-           Console.WriteLine("ID : " + ID + "Customer name :" + CustomerName + "Provider name: " + ProviderName + "Status : " +Status +"List of ordered item :" + ListOfItems + "Total Cost :" +TotalCost);
+           Console.WriteLine("ID : " + ID + "Customer name :" + CustomerName + "Provider name: " + ProviderName + "Status : " + Status  + "Total Cost :" +TotalCost);
+            Console.WriteLine("\n\nList of ordered item:  \n\n");
+            for(int i=0;i<ItemCounter;i++)
+            {
+                ListOfItems[i].ViewItem();
+            }
         }
 
       
