@@ -187,8 +187,8 @@ namespace UML_Console_Project.ProjectFiles
             string Pname = Console.ReadLine();
             
             int j=0;
-            Item[] I = MySystem.GetItemsByProvider(ref j, Pname); 
-            
+            Item[] I = MySystem.GetItemsByProvider(ref j, Pname);
+            Console.WriteLine(I);
             
             for (int i=0;i<j;i++)
             {
