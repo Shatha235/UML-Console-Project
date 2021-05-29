@@ -51,6 +51,8 @@ namespace UML_Console_Project.ProjectFiles
             return ProviderName;
         }
 
+        
+
         public double GetCost()
         {
             return Price;
@@ -59,6 +61,10 @@ namespace UML_Console_Project.ProjectFiles
         public string GetID()
         {
             return ID;
+        }
+        public string GetItemID()
+        {
+            return ItemID;
         }
         public int GetQuantity()
         {
@@ -84,6 +90,24 @@ namespace UML_Console_Project.ProjectFiles
            
         }
 
+        public string GetDescriptionByID(string ID)
+        {
+
+            for (int i = 0; i < MySystem.PCounter; i++)
+                for (int j = 0; j < MySystem.ProviderArr[i].ItemCounter; j++)
+                    if (MySystem.ProviderArr[i].GetItem(j).GetID() == ID)
+                        return MySystem.ProviderArr[i].GetItem(j).GetDescription();
+                     return "";
+        }
+
+        public string GetItemByID(string id)
+        {
+            for (int i = 0; i < MySystem.OfCounter; i++)
+                if (MySystem.OfferArr[i].GetID() == id)
+                    return MySystem.OfferArr[i].GetItemID();
+
+            return "";
+        }
         static public void InaitialData()
         {
             MySystem.OfferArr = new Offer[100];

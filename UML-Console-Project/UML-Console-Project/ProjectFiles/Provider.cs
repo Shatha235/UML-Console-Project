@@ -146,7 +146,7 @@ namespace UML_Console_Project.ProjectFiles
         }
         public void SetItemQuantity(int index,int Q)
         {
-            ListOfItems[index].SetQuantity(Q);
+            ListOfItems[index].SetQuantity(ListOfItems[index].GetQuantity()-Q);
         }
         public double GetIncome()
         { 

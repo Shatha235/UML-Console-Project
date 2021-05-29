@@ -193,24 +193,33 @@ namespace UML_Console_Project.ProjectFiles
                
             }
             
-            int k = 0;
-            Offer []O = MySystem.GetOffersByProvider(ref k, Pname);
-            for (int i = 0; i < k; i++)
+         
+
+            for (int i = 0; i < MySystem.OfCounter; i++)
             {
-                O[i].View();
+                if (MySystem.OfferArr[i].GetProviderName() == Pname)
+                    MySystem.OfferArr[i].View();
             }
             
             Order Ord = new Order();
-            double CostCounter = MySystem.GetProviderDeliveryRate(Pname);
+            double CostCounter = 0;
             int choice;
             bool f = true;
             do
             {
                 Console.Clear();
                for (int i=0;i<j ;i++)
-            {
-                I[i].ViewItem();
-            }
+                    {
+                          I[i].ViewItem();
+                     }
+
+                for (int i = 0; i < MySystem.OfCounter; i++)
+                {
+                    if (MySystem.OfferArr[i].GetProviderName() == Pname)
+                        MySystem.OfferArr[i].View();
+                }
+
+
 
                 Console.WriteLine("[1] Add an item to the order");
                 Console.WriteLine("[2] Add an offer to the order");
@@ -233,8 +242,8 @@ namespace UML_Console_Project.ProjectFiles
                         {
                             MySystem.ChangeItemQuantity(Pname, ID, Quantity);
                             CostCounter += (double)Quantity * I[i].GetPrice();
-                            
-                            Ord.AddItem(I[i]);
+                            Item item = new Item(I[i].GetID(), I[i].GetDescription(), I[i].GetPrice(), (Quantity));
+                            Ord.AddItem(item);
                             break;                        
                         }
 
@@ -250,13 +259,15 @@ namespace UML_Console_Project.ProjectFiles
                     
                     
                 
-                    for (int i = 0; i < k; i++)
+                    for (int i = 0; i < MySystem.OfCounter; i++)
                     {
-                        if (O[i].GetID() == ID)
+                        if (MySystem.OfferArr[i].GetProviderName()==Pname && MySystem.OfferArr[i].GetID() == ID)
                         {
-                            MySystem.ChangeItemQuantity(Pname, ID, O[i].GetQuantity());
-                            CostCounter +=  O[i].GetCost();
-                            Ord.AddItem(I[i]);
+                            
+                            CostCounter += MySystem.OfferArr[i].GetCost();
+                            Item item = new Item(MySystem.OfferArr[i].GetItemID(),MySystem.OfferArr[i].GetDescriptionByID(MySystem.OfferArr[i].GetItemID()), MySystem.OfferArr[i].GetCost(), MySystem.OfferArr[i].GetQuantity());
+                            MySystem.ChangeItemQuantity(Pname, MySystem.OfferArr[i].GetItemByID(ID), MySystem.OfferArr[i].GetQuantity());
+                            Ord.AddItem(item);
                             break;
 
                         }
@@ -272,7 +283,7 @@ namespace UML_Console_Project.ProjectFiles
             Console.WriteLine("Enter A Unique ID for the Order please: ");
             string OrderID = Console.ReadLine();
             
-           Ord.SetOrderInfo(OrderID,this.Name,Pname,"not paid",CostCounter);
+           Ord.SetOrderInfo(OrderID,this.Name,Pname,"not paid",CostCounter+(CostCounter* MySystem.GetProviderDeliveryRate(Pname)));
             MySystem.OrderArr[MySystem.OrCounter++]=Ord;
 
             MySystem.Storefiles();
