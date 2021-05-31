@@ -1,4 +1,6 @@
-﻿using System;
+﻿//All of (customer.cs) is done by Shatha Hossam Except for this function :
+//PlaceNewOrder -----> done by jebril mejdalawi
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.IO;

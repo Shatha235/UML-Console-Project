@@ -1,4 +1,9 @@
-﻿using System;
+﻿//All of (program.cs) is done by Jebril Mejdalawi Except for these 3 functions :
+//1-Login -----> done by Shatha Hossam
+//2-LoginAsAdmin  -----> done by Shatha Hossam
+//3-LoginAsCustomer  -----> done by Shatha Hossam
+
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
